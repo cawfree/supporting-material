@@ -1,0 +1,10 @@
+{
+  "name": "2019-10-25_ReactAdvanced_Parallelization",
+  "version": "0.0.1",
+  "description": "Just because your native app runs on the UI Thread, it doesn't stop you from taking advantage of all the runtime has to offer. We'll be discussing some of the techniques available to native developers to help achieve real threaded execution of their code, some use cases, and the potential pitfalls to be aware of when making your app feel as smooth as butter.",
+  "main": "index.js",
+  "repository": "https://github.com/cawfree/supporting-material",
+  "author": "Alex Thomas (@cawfree) <hello@cawfree.com>",
+  "license": "MIT",
+  "private": false
+}
