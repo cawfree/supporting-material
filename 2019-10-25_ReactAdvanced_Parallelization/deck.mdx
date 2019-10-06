@@ -1,5 +1,5 @@
 import Layout from './components/Layout'
-import { themes } from 'mdx-deck';
+import { Notes, themes } from 'mdx-deck';
 import Background from './static/images/mapsy-flaticon-background.png';
 
 export const theme = themes.dark;
@@ -11,20 +11,62 @@ export const theme = themes.dark;
 
 </Layout>
 
+<Notes
+>
+</Notes>
+
 ---
 
 <Layout>
 
-# Custom Layout
-and other things
+# Introduction
+
+
+## 👋 Hey, I'm Alex.
 
 </Layout>
 
+<Notes
+>
+</Notes>
+
 ---
 
 <Layout>
 
-# Custom Layout
-and other things
+# Today's Talk...
+
+## ⚡ Threading.
+  - JavaScript is inherently _synchronous_.
+  - Devices are becoming increasingly _parallel_.
+  - Users have _high expectations_ of native apps.
+
+</Layout>
+
+<Notes
+>
+</Notes>
+
+---
+
+<Layout>
+
+# ☠️  Pick your Poison.
+
+  - **Native Code** (Objective C, Java, etc.)
+    - Highest performance, highest complexity.
+  - ** Delegate** to a `<WebView />`
+    - Simple, subject to browser fragmentation.
+  - **Hybrid Containers**
+    - Performant threaded JavaScript.
+
+<Notes
+>
+  - **Native Code**
+    - Can be tuned and thoroughly optimised to take full advantage of the capabilities exposed by the native runtime.
+    - Imposes both development and test complexity, which scales linearly with the number of platforms you intend to target.
+    - Not to mention requires compliant implementations of bridge protocol for all runtimes.
+
+</Notes>
 
 </Layout>
