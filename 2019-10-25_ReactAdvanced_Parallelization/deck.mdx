@@ -8,6 +8,7 @@ export { dark as theme } from 'mdx-deck/themes';
 import morphing from './static/lottie/morphing.json';
 import floating from './static/lottie/floating.json';
 import cogs from './static/lottie/cogs.json';
+import graphs from './static/lottie/graphs.json';
 
 import ReactAdvanced from './components/ReactAdvanced';
 
@@ -29,7 +30,7 @@ import ReactAdvanced from './components/ReactAdvanced';
   }}
 >
 
-# Threading in React Native
+# Threading in React Native: A bridge too far?
 
 <Lottie
   options={{
@@ -88,7 +89,8 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
   }}
 >
 
-# ⚡ Threading.
+## ⚡ Prerequisites.
+
   - JavaScript is inherently _synchronous_.
   - Devices are becoming increasingly _parallel_.
   - Users have _high expectations_ of native apps.
@@ -140,22 +142,47 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 
 <div
   style={{
-    width: '100vw',
+    width: '60vw',
     height: '100vh',
-    padding: 5,
+    padding: 10,
   }}
 >
 
-# ☠️  Pick your Poison.
 
-  - **Native Code** (Objective C, Java, etc.)
-    - Highest performance, highest complexity.
+## ☠️  Pick your Poison.
+
+  - **Native Code**
   - ** Delegate** to a `<WebView />`
-    - Simple, subject to browser fragmentation.
   - **Hybrid Containers**
-    - Dedicated threaded JavaScript.
 
 </div>
+
+<div
+  style={{
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    width: '40vw',
+    height: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+  }}
+>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: graphs,
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice',
+      },
+    }}
+    width="70vw"
+    height="70vh"
+  />
+</div>
+
+</ReactAdvanced>
 
 <Notes
 >
@@ -175,8 +202,6 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
     - Since both threads are decoupled, you allow them both to execute as fast as possible.
 
 </Notes>
-
-</ReactAdvanced>
 
 ---
 
@@ -231,3 +256,64 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
     { notes: ""},
   ]}
 />
+
+---
+
+<ReactAdvanced>
+
+## 😪 tl;dr
+
+<div
+  style={{
+    paddingLeft: 5,
+  }}
+>
+
+  - **Use threads!**
+    - They're too simple and too powerful to ignore.
+
+
+  - **Threading options?**
+    - Native Code
+    -  Delegate to a `<WebView />`
+    - Hybrid Containers
+    - *...more?*
+
+</div>
+
+</ReactAdvanced>
+
+<Notes
+>
+
+</Notes>
+
+---
+
+
+<ReactAdvanced>
+
+## Thanks for listening!
+
+<div
+  style={{
+    paddingLeft: 5,
+  }}
+>
+
+  - ✉️ **Contact**
+    - Shoot me a **Pull Request** at [**github.com/cawfree**]()!
+    - Listen to me **whine** on Twitter [**@cawfree**]().
+    - Get **personal** via [**hello@cawfree.com**]().
+    - Speak to me at tonight's party!
+
+</div>
+
+</ReactAdvanced>
+
+<Notes
+>
+
+</Notes>
+
+
