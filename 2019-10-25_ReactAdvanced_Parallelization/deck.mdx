@@ -130,7 +130,7 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
   - [and yet,] Devices are becoming increasingly _parallel_.
     - The iPhone 11 packs the A13 Bionic CPU; a six-core processor, and the latest Samsung Galaxy carries a whopping eight cores. These manufacturing superpowers clearly recognise the gains in computing power that can be achieved through multiprocessing. Likewise, this also demonstrates that these market leaders acnkowledge the demand of software developers to utilise even more background computation than ever before.
   - [and finally,] Users have very high expectations of native apps.
-    - They don't just sit patiently through a download from the App Store for nothing; there's an _implicit expectation_ that a native application should be capable of achieving what the browser couldn't; and that includes taking advantage of the runtime system for all it's worth.
+    - They don't just sit patiently through a download from the App Store for nothing; there's an _implicit expectation_ that a native app should be capable of achieving what the browser couldn't; and that includes taking advantage of the runtime system for all it's worth.
 
 </Notes>
 
@@ -181,15 +181,53 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 ---
 
 <CodeSurfer
-  title="Some Title"
-  code="const x = 1;"
+  title="Native Thread Example (Android)"
+  code={require('./snippets/native.js')}
+  lang="java"
+  showNumbers={false}
+  dark={false}
+  steps={[
+    { notes: ""},
+    { range: [15, 16] },
+    { range: [24, 28] },
+    { range: [29, 41] },
+    { notes: ""},
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="<WebView /> Example"
+  code={require('./snippets/webview.js')}
   lang="javascript"
   showNumbers={false}
   dark={false}
   steps={[
-    { notes: "Start with this note"},
-    { lines: [6], notes: "Note for the first step" },
-    { range: [5, 9] },
-    { tokens: { 9: [3, 4, 5] }, notes: "Note for the third step" }
+    { notes: ""},
+    { range: [4, 5] },
+    { range: [25, 36] },
+    { range: [6, 14] },
+    { notes: ""},
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="Hybrid Example"
+  code={require('./snippets/hybrid.js')}
+  lang="javascript"
+  showNumbers={false}
+  dark={false}
+  steps={[
+    { notes: ""},
+    { range: [3, 3] },
+    { range: [5, 5] },
+    { range: [13, 18] },
+    { range: [7, 11] },
+    { range: [22, 22] },
+    { range: [23, 30] },
+    { notes: ""},
   ]}
 />
