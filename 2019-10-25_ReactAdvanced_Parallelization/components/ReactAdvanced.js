@@ -18,7 +18,7 @@ export default ({ children, ...extraProps }) => (
           width: '100vw',
           height: '100vh',
           right: 0,
-          opacity: 0.05,
+          opacity: 0.02,
         }}
         src="../static/images/octo.png"
       />
@@ -66,7 +66,6 @@ export default ({ children, ...extraProps }) => (
           src="../static/images/flaticon.png"
         />
       </div>
-
     </div>
   </>
 );
