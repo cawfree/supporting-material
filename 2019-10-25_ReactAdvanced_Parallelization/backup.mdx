@@ -1,0 +1,117 @@
+import Layout from './components/Layout'
+import { Appear, Notes, themes } from 'mdx-deck';
+import { CodeSurfer } from "mdx-deck-code-surfer"
+
+
+<Layout>
+
+# Threading in React Native: A _bridge_ too far?
+`Alex Thomas (@cawfree) <hello@cawfree.com>`
+
+</Layout>
+
+<Notes
+>
+</Notes>
+
+---
+
+<Layout>
+
+# Introduction
+
+
+## 👋 Hello!
+
+</Layout>
+
+<Notes
+>
+
+Hey everyone! My name is Alex and I'm the creator of the Android and iOS application Mapsy, which is a live social map of the world, powered by React Native.
+
+I've been passionate about software development for the past twelve years, but I've only been an active open source contributor for the past two, which makes today my first ever technical conference!
+
+I'm extremely honoured to speak with you all today, and please can I just ask you all to remember that if I _do_ make any mistakes, like throw up on stage or something... try to go easy on me.
+
+</Notes>
+
+---
+
+<Layout>
+
+# Today's Talk...
+
+## ⚡ Threading.
+  <Appear
+  >
+    - JavaScript is inherently _synchronous_.
+  </Appear>
+  - Devices are becoming increasingly _parallel_.
+  - Users have _high expectations_ of native apps.
+
+</Layout>
+
+<Notes
+>
+  - JavaScript is inherently _synchronous_.
+    - We have a single JavaScript thread that is responsible for the execution of all of our logic. And, even when we perform actions which from the outside may _appear_ asynchronous, such as the invocation of a `Promise` or a call to `setTimeout`, JavaScript is merely providing the _illusion_ of asynchrony. Even the _truly_ asynchronous operations, such as network calls using ajax; these are merely bookended by synchronous callbacks in JavaScript.
+  - [and yet,] Devices are becoming increasingly _parallel_.
+    - The iPhone 11 packs the A13 Bionic CPU; a six-core processor, and the latest Samsung Galaxy carries a whopping eight cores. These manufacturing superpowers clearly recognise the gains in computing power that can be achieved through multiprocessing. Likewise, this also demonstrates that these market leaders acnkowledge the demand of software developers to utilise even more background computation than ever before.
+  - [and finally,] Users have very high expectations of native apps.
+    - They don't just sit patiently through a download from the App Store for nothing; there's an _implicit expectation_ that a native application should be capable of achieving what the browser couldn't; and that includes taking advantage of the runtime system for all it's worth.
+
+</Notes>
+
+---
+
+<Layout>
+
+# 🤔 Why should I care?
+
+  - React Native applications are, above all things, JavaScript!
+  - We all know of _that_ operation which we wish didn't have to share the same JavaScript thread as React.
+
+</Layout>
+
+<Notes
+>
+    - This means that any kind of extensive computation you need to perform, fundamentally has to share the JavaScript thread with React. What follows is that the more computation you need, the less time React has to complete your next render frame. Increasing workload eventually leads to dropped render frames, where your application appears to stutter, and appear unresponsive. Now, no matter how astute React fiber is at simplifying application state transitions, and it really is, eventually there has to be a bottleneck in the amount of work you crunch through before performance starts to diminish.
+  - Now some of us may have hit that bottleneck already; and if not, I'm sure we can all at least think of at least one of our application workflows which if we had the choice, we would choose to execute it somewhere other than the JavaScript thread.
+
+</Notes>
+
+---
+
+<Layout>
+
+# ☠️  Pick your Poison.
+
+  - **Native Code** (Objective C, Java, etc.)
+    - Highest performance, highest complexity.
+  - ** Delegate** to a `<WebView />`
+    - Simple, subject to browser fragmentation.
+  - **Hybrid Containers**
+    - Dedicated threaded JavaScript.
+
+<Notes
+>
+  - **Native Code**
+    - There are no limits to what can be achieved with the native runtime using the RN bridge. Therefore, it's perfectly possible to deploy tuned, threaded equivalents equivalents of your most computationally-intense code to the native application, which will achieve the highest performance.
+    - However, this high performance comes with a severe tradeoff in implementation complexity; as they require both nontrivial development and test effort, _and_ dedicated implementations per-platform for all you polyglots.
+    - In addition, normally the nature of designing threaded computation is that you usually want to spin up new workers for ad-hoc tasks whilst you develop, as the most likely candidates for concurrency usually make themselves known during development time. Because of this, a native implementation is a particularly hard sell for general purpose use.
+
+  - **Delegate**
+    - As an alternative solution, what if it was possible to take advantage of an existing JavaScript runtime, and have it compute your code for you?
+    - There is a well-known technique of exploiting React Native's `<WebView/>` component as a workhorse for computation. What this boils down to is effectively creating a static webpage which serves the code you'd wish to execute embedded within `<script/>` tags. Provided the functions you wish to access are globally available via the `window` object, we can call them by injecting arguments from your JavaScript thread into the `<WebView/>` container. Similarly, we can receive execution results by listening to `onMessage` callbacks from the `<WebView/>`. And all this, _without_ blocking your own application's JavaScript render thread, which provides noticeable performance improvements.
+    - In addition, now that we're working in a webpage, we can access all of the <script/> dependencies we want! You can even take advantage of persistent data using in-browser storage.
+    - Since we're exploiting existing engines (every device has a browser), there's no noticeable increase to your compiled application binaries; however, you _are_ subject to browser support fragmentation. In addition, this isn't _technically_ threaded execution; this is more like spreading your computation across the UI thread.
+
+  - **Hybrid**
+    - The best of both worlds, a hybrid container is effectively a full JavaScript runtime which operates independently of your JavaScript thread, in a dedicated native background thread.
+    - Since both threads are decoupled, you allow them both to execute as fast as possible.
+    - However, a caveat to this is that .
+
+</Notes>
+
+</Layout>

@@ -1,107 +1,46 @@
-import Layout from './components/Layout'
-import { Notes, themes } from 'mdx-deck';
-import Background from './static/images/mapsy-flaticon-background.png';
-import Alex from './static/images/alex.png';
+import { Notes, Head, Image } from 'mdx-deck';
+import { CodeSurfer } from 'mdx-deck-code-surfer'
+import ReactAdvanced from './components/ReactAdvanced';
+export { dark as theme } from 'mdx-deck/themes';
 
-export const theme = themes.dark;
+<Head>
+  <title>Threading in React Native: A bridge too far?</title>
+</Head>
 
-<Layout>
-
-# Threading in React Native: A _bridge_ too far?
-`Alex Thomas (@cawfree) <hello@cawfree.com>`
-
-</Layout>
-
-<Notes
->
-</Notes>
-
----
-
-<Layout>
-
-# Introduction
-
-
-## 👋 Hello!
-
-</Layout>
-
-<Notes
->
-
-Hey everyone! My name is Alex and I'm the creator of the app Mapsy, the live social map of the world. Which is fortunate enough to be powered by the _incredible_ React Native.
-
-I've been a passionate software developer for the past twelve years, but I've only been an active open source contributor for the past two, which makes this my very first ever technical conference!
-
-I'm extremely honoured to speak with you all today, and please can I just ask you all to remember that if I _do_ make any mistakes, like throw up on stage or something... try to go easy on me.
-
-</Notes>
+<CodeSurfer
+  title="Some Title"
+  code="const x = 1;"
+  lang="javascript"
+  showNumbers={false}
+  dark={false}
+  steps={[
+    { notes: "Start with this note"},
+    { lines: [6], notes: "Note for the first step" },
+    { range: [5, 9] },
+    { tokens: { 9: [3, 4, 5] }, notes: "Note for the third step" }
+  ]}
+/>
 
 ---
 
-<Layout>
+<ReactAdvanced>
 
-# Today's Talk...
+# Hey, 👋🏻 I'm Alex!
 
-## ⚡ Threading.
-  - JavaScript is inherently _synchronous_.
-  - Devices are becoming increasingly _parallel_.
-  - Users have _high expectations_ of native apps.
+<img
+  style={{
+    borderRadius: 200,
+    width: 400,
+    height: 400,
+  }}
+  src="./static/images/alex.png"
+/>
 
-</Layout>
-
-<Notes
->
-  - JavaScript is inherently _synchronous_.
-    - We have a single JavaScript thread that is responsible for the execution of all of our logic. And, even when we perform actions which from the outside may _appear_ asynchronous, such as the invocation of a `Promise` or a call to `setTimeout`, JavaScript is merely providing the _illusion_ of asynchrony. Even the _truly_ asynchronous operations, such as network calls using ajax; these are merely bookended by JavaScript synchronous callbacks.
-  - [and yet,] Devices are becoming increasingly _parallel_.
-    - The iPhone 11 packs the A13 Bionic CPU; a six-core processor, and the latest Samsung Galaxy carries a whopping eight cores. These manufacturing superpowers clearly acknowledge the gains in computing power that can be achieved through multiprocessing, and also recognize the demand of software developers who crave to utilise more background computation in their applications than ever before.
-  - [and finally,] Users have very high expectations of native apps.
-    - They don't just wait patiently through a download from the App Store for nothing; there's an _implicit expectation_ that a native application should be capable of achieving what the browser couldn't; and that includes taking advantage of the runtime system for all it's worth. 
-
-</Notes>
-
+</ReactAdvanced>
 ---
 
-<Layout>
+<ReactAdvanced>
 
-# 🤔 Why should I care?
+# Hello again
 
-  - React Native applications are fundamentally JavaScript!
-  - We all know of _that_ operation which we wish didn't have to share the same JavaScript thread as React.
-
-</Layout>
-
-<Notes
->
-  - Your React Native applications are fundamentally JavaScript!
-    - React Native provides us with all of the tools we could ever need to construct and execute native operations, but what truly identifies your application to your users, is what happens in your JavaScript thread.
-    - This means that any kind of extensive computation you need to execute inside of your application, fundamentally has to share the JavaScript thread with React. This end result is that the more computation you need, the less time React has to complete your next render frame. This is what ends up leading to dropped render frames, where your application appears to stutter. Now, no matter how astute React fiber is at simplifying application state transitions, and it really is, eventually there has to be a bottleneck in the amount of work you crunch through.
-  - Some of us may have hit that bottleneck already; and if not, I'm sure we can all at least think of some workflows in our applications which if we had the choice, we would choose to execute them just somewhere other than the JavaScript thread.
-
-</Notes>
-
----
-
-<Layout>
-
-# ☠️  Pick your Poison.
-
-  - **Native Code** (Objective C, Java, etc.)
-    - Highest performance, highest complexity.
-  - ** Delegate** to a `<WebView />`
-    - Simple, subject to browser fragmentation.
-  - **Hybrid Containers**
-    - Performant threaded JavaScript.
-
-<Notes
->
-  - **Native Code**
-    - Can be tuned and thoroughly optimised to take full advantage of the capabilities exposed by the native runtime.
-    - Imposes both development and test complexity, which scales linearly with the number of platforms you intend to target.
-    - Not to mention requires compliant implementations of bridge protocol for all runtimes.
-
-</Notes>
-
-</Layout>
+</ReactAdvanced>
