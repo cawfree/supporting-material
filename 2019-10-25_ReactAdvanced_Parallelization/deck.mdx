@@ -2,6 +2,7 @@ import { Appear, Notes, Head, Image } from 'mdx-deck';
 import { FullscreenCode, Split, SplitRight } from 'mdx-deck/layouts';
 import { CodeSurfer } from 'mdx-deck-code-surfer'
 import Lottie from 'react-lottie';
+import { Fade } from '@material-ui/core';
 
 export { dark as theme } from 'mdx-deck/themes';
 
@@ -11,6 +12,7 @@ import cogs from './static/lottie/cogs.json';
 import graphs from './static/lottie/graphs.json';
 
 import ReactAdvanced from './components/ReactAdvanced';
+import FadeAppear from './components/FadeAppear';
 
 <Head>
   <title>Threading in React Native: A bridge too far?</title>
@@ -55,14 +57,25 @@ import ReactAdvanced from './components/ReactAdvanced';
 
 # Hey, 👋🏻 I'm Alex!
 
-<img
-  style={{
-    borderRadius: 200,
-    width: 400,
-    height: 400,
+<FadeAppear>
+  <h2>hi</h2>
+</FadeAppear>
+
+<Fade
+  in
+  timeout={{
+    enter: 1000,
   }}
-  src="./static/images/alex.png"
-/>
+>
+  <img
+    style={{
+      borderRadius: 200,
+      width: 400,
+      height: 400,
+    }}
+    src="./static/images/alex.png"
+  />
+</Fade>
 
 </ReactAdvanced>
 
@@ -81,49 +94,27 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 
 <ReactAdvanced>
 
-<div
-  style={{
-    width: '70vw',
-    height: '100vh',
-    padding: 10,
-  }}
->
-
-## ⚡ Prerequisites.
-
-  - JavaScript is inherently _synchronous_.
-  - Devices are becoming increasingly _parallel_.
-  - Users have _high expectations_ of native apps.
-
-</div>
+## Background
 
 <div
   style={{
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    width: '30vw',
-    height: '100vh',
-    display: 'flex',
-    alignItems: 'center',
+    paddingLeft: 5,
   }}
 >
-  <Lottie
-    options={{
-      loop: true,
-      autoplay: true,
-      animationData: floating,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      },
-    }}
-    width="30vw"
-    height="30vw"
-  />
+
+  - **State of the Field**
+    - JavaScript is inherently _synchronous_.
+    - Devices are becoming increasingly _parallel_.
+    - Users have _high expectations_ of native apps.
+
+
+  - **Threading options?**
+    - Native Code
+    - *...more?*
+
 </div>
 
 </ReactAdvanced>
-
 
 <Notes
 >
@@ -306,6 +297,8 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
     - Listen to me **whine** on Twitter [**@cawfree**]().
     - Get **personal** via [**hello@cawfree.com**]().
     - Speak to me at tonight's party!
+  - 📥 ** Downloads **
+    - The full presentation is available at: [**https://github.com/cawfree/supporting-material**]().
 
 </div>
 
@@ -315,5 +308,3 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 >
 
 </Notes>
-
-
