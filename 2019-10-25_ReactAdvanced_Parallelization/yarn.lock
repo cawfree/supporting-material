@@ -4264,6 +4264,13 @@ mdx-deck-code-surfer@^0.5.5:
     code-surfer "^0.5.5"
     memoize-one "^4.0.2"
 
+mdx-deck-fade@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/mdx-deck-fade/-/mdx-deck-fade-0.0.2.tgz#2b634c34d46d01116319dd49cf8edff4e89ff3e4"
+  integrity sha512-sW+MAPzgN+GrYb9lrEHTEx5qVF+2dh5FvvGhnMm/Od+dNFfB61QE/fVZ+yb/EZQ5m5HsW3XuTrHzfBoTpOpruw==
+  dependencies:
+    "@material-ui/core" "^4.5.0"
+
 mdx-deck@^1.7.7:
   version "1.10.2"
   resolved "https://registry.yarnpkg.com/mdx-deck/-/mdx-deck-1.10.2.tgz#382b45671805e149ecba23163f14146813dd221c"

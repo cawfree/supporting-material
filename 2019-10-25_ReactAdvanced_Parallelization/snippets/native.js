@@ -30,7 +30,7 @@ public class NativeThreads extends ReactContextBaseJavaModule {
     NativeThreads.EXECUTOR_SERVICE
       .execute(
         new Runnable() { @Override public final void run() {
-          // Your intense operation here!
+          /** TODO: Intense logic here! 🎉 */
           final WriteableMap lWriteableMap = new WriteableMap();
           // Return the result to the caller.
           pPromise

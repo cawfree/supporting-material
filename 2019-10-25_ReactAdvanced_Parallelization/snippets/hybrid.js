@@ -24,7 +24,7 @@ module.exports = {
   // XXX: Note all of your exported functions become
   //      promisified when called via the bridge.
   doSomethingIntense: (...args) => {
-    // Your intense operation!
+    /** TODO: Intense logic here! 🎉 */
     return {};
   },
 };

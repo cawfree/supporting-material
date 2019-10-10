@@ -1,10 +1,23 @@
 import { Appear, Notes, Head, Image } from 'mdx-deck';
 import { FullscreenCode, Split, SplitRight } from 'mdx-deck/layouts';
+import { dark } from 'mdx-deck/themes';
 import { CodeSurfer } from 'mdx-deck-code-surfer'
+import Fade from 'mdx-deck-fade';
 import Lottie from 'react-lottie';
-import { Fade } from '@material-ui/core';
 
-export { dark as theme } from 'mdx-deck/themes';
+export const theme = {
+  ...dark,
+  code: {
+    ...dark.code,
+    color: 'white',
+    fontWeight: 'bold',
+  },
+  link: {
+    ...dark.link,
+    color: 'white',
+    fontWeight: 'bold',
+  },
+};
 
 import morphing from './static/lottie/morphing.json';
 import floating from './static/lottie/floating.json';
@@ -12,7 +25,6 @@ import cogs from './static/lottie/cogs.json';
 import graphs from './static/lottie/graphs.json';
 
 import ReactAdvanced from './components/ReactAdvanced';
-import FadeAppear from './components/FadeAppear';
 
 <Head>
   <title>Threading in React Native: A bridge too far?</title>
@@ -57,25 +69,14 @@ import FadeAppear from './components/FadeAppear';
 
 # Hey, 👋🏻 I'm Alex!
 
-<FadeAppear>
-  <h2>hi</h2>
-</FadeAppear>
-
-<Fade
-  in
-  timeout={{
-    enter: 1000,
+<img
+  style={{
+    borderRadius: 200,
+    width: 400,
+    height: 400,
   }}
->
-  <img
-    style={{
-      borderRadius: 200,
-      width: 400,
-      height: 400,
-    }}
-    src="./static/images/alex.png"
-  />
-</Fade>
+  src="./static/images/alex.png"
+/>
 
 </ReactAdvanced>
 
@@ -94,7 +95,7 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 
 <ReactAdvanced>
 
-## Background
+## Context
 
 <div
   style={{
@@ -102,15 +103,18 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
   }}
 >
 
+<Fade>
+
+  - **Today's Lightning Talk**
+    - What are the benefits of threading?
+    - How do you spin up threads in React Native?
+
+
   - **State of the Field**
     - JavaScript is inherently _synchronous_.
     - Devices are becoming increasingly _parallel_.
-    - Users have _high expectations_ of native apps.
 
-
-  - **Threading options?**
-    - Native Code
-    - *...more?*
+</Fade>
 
 </div>
 
@@ -122,8 +126,6 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
     - We have a single JavaScript thread that is responsible for the execution of all of our logic. And, even when we perform actions which from the outside may _appear_ asynchronous, such as the invocation of a `Promise` or a call to `setTimeout`, JavaScript is merely providing the _illusion_ of asynchrony. Even the _truly_ asynchronous operations, such as network calls using ajax; these are merely bookended by synchronous callbacks in JavaScript.
   - [and yet,] Devices are becoming increasingly _parallel_.
     - The iPhone 11 packs the A13 Bionic CPU; a six-core processor, and the latest Samsung Galaxy carries a whopping eight cores. These manufacturing superpowers clearly recognise the gains in computing power that can be achieved through multiprocessing. Likewise, this also demonstrates that these market leaders acnkowledge the demand of software developers to utilise even more background computation than ever before.
-  - [and finally,] Users have very high expectations of native apps.
-    - They don't just sit patiently through a download from the App Store for nothing; there's an _implicit expectation_ that a native app should be capable of achieving what the browser couldn't; and that includes taking advantage of the runtime system for all it's worth.
 
 </Notes>
 
@@ -136,15 +138,13 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
     width: '60vw',
     height: '100vh',
     padding: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    display: 'flex',
   }}
 >
 
-
-## ☠️  Pick your Poison.
-
-  - **Native Code**
-  - ** Delegate** to a `<WebView />`
-  - **Hybrid Containers**
+# Three Examples in Three Minutes
 
 </div>
 
@@ -196,15 +196,41 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 
 ---
 
+<ReactAdvanced>
+
+<div
+  style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100vw',
+    height: '100vh',
+  }}
+>
+
+  <div>
+
+# Native Threads
+
+  </div>
+
+</div>
+
+</ReactAdvanced>
+
+---
+
 <CodeSurfer
   title="Native Thread Example (Android)"
   code={require('./snippets/native.js')}
   lang="java"
   showNumbers={false}
-  dark={false}
+  dark
   steps={[
     { notes: ""},
     { range: [15, 16] },
+    { range: [19, 19] },
+    { range: [21, 22] },
     { range: [24, 28] },
     { range: [29, 41] },
     { notes: ""},
@@ -213,20 +239,70 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 
 ---
 
+<ReactAdvanced>
+
+<div
+  style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100vw',
+    height: '100vh',
+  }}
+>
+
+  <div>
+
+# The `<WebView/>`
+
+  </div>
+
+</div>
+
+</ReactAdvanced>
+
+---
+
 <CodeSurfer
   title="<WebView /> Example"
   code={require('./snippets/webview.js')}
   lang="javascript"
   showNumbers={false}
-  dark={false}
+  dark
   steps={[
     { notes: ""},
     { range: [4, 5] },
     { range: [25, 36] },
     { range: [6, 14] },
+    { range: [29, 33] },
     { notes: ""},
   ]}
 />
+
+---
+
+<ReactAdvanced>
+
+<div
+  style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100vw',
+    height: '100vh',
+  }}
+>
+
+  <div>
+
+# Hybrid Containers
+
+  </div>
+
+</div>
+
+</ReactAdvanced>
+
 
 ---
 
@@ -235,7 +311,7 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
   code={require('./snippets/hybrid.js')}
   lang="javascript"
   showNumbers={false}
-  dark={false}
+  dark
   steps={[
     { notes: ""},
     { range: [3, 3] },
@@ -252,7 +328,7 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 
 <ReactAdvanced>
 
-## 😪 tl;dr
+## Summary
 
 <div
   style={{
@@ -264,7 +340,7 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
     - They're too simple and too powerful to ignore.
 
 
-  - **Threading options?**
+  - **What are the options, again?**
     - Native Code
     -  Delegate to a `<WebView />`
     - Hybrid Containers
@@ -281,24 +357,21 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 
 ---
 
-
 <ReactAdvanced>
-
-## Thanks for listening!
 
 <div
   style={{
-    paddingLeft: 5,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    width: '100vw',
+    height: '100vh',
   }}
 >
 
-  - ✉️ **Contact**
-    - Shoot me a **Pull Request** at [**github.com/cawfree**]()!
-    - Listen to me **whine** on Twitter [**@cawfree**]().
-    - Get **personal** via [**hello@cawfree.com**]().
-    - Speak to me at tonight's party!
-  - 📥 ** Downloads **
-    - The full presentation is available at: [**https://github.com/cawfree/supporting-material**]().
+
+# Thanks for listening!
 
 </div>
 

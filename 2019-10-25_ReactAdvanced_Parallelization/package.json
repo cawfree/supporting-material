@@ -15,9 +15,9 @@
   "author": "Alex Thomas (@cawfree) <hello@cawfree.com>",
   "license": "MIT",
   "dependencies": {
-    "@material-ui/core": "^4.5.0",
     "mdx-deck": "^1.7.7",
     "mdx-deck-code-surfer": "^0.5.5",
+    "mdx-deck-fade": "^0.0.2",
     "raw-loader": "^0.5.1",
     "react": "^16.10.2",
     "react-lottie": "^1.2.3"

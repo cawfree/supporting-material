@@ -51,21 +51,21 @@ export default ({ children, ...extraProps }) => (
           style={{
             width: 75,
             height: 75,
-            marginRight: -15,
+            marginRight: 15,
             marginBottom: 5,
           }}
           src="../static/images/logo_mini.svg"
         />
         <img
           style={{
-            marginRight: -20,
-            marginBottom: -20,
-            width: 130,
-            height: 130,
+            marginBottom: 15,
+            marginRight: 10,
+            width: 120,
+            height: 60,
           }}
-          src="../static/images/flaticon.png"
+          src="../static/images/mapsy.png"
         />
-      </div>
+      </div> 
     </div>
   </>
 );

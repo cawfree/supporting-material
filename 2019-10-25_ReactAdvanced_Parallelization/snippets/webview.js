@@ -6,7 +6,7 @@ import Elsewhere from '@cawfree/react-native-elsewhere';
 
 // XXX: Important! Relies upon .toString().
 function doSomethingIntense(postMessage, message = {}) {
-  // Your intense operation here!
+  /** TODO: Intense logic here! 🎉 */
   return postMessage(
     {},
   );
