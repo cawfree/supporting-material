@@ -20,6 +20,7 @@
     "mdx-deck-fade": "^0.0.2",
     "raw-loader": "^0.5.1",
     "react": "^16.10.2",
+    "react-gradient": "^1.0.2",
     "react-lottie": "^1.2.3"
   },
   "devDependencies": {

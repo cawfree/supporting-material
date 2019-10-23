@@ -5,13 +5,21 @@ export default ({ children, ...extraProps }) => (
     <div
       style={{
         position: 'absolute',
-        marginLeft: '-50%',
+        marginLeft: '-50vw',
         marginTop: '-50vh',
-        width: '100%',
-        height: '100%',
-        backgroundImage: `url(../static/images/mapsy-flaticon-background.png)`,
+        width: '100vw',
+        height: '100vh',
       }}
     >
+      <img
+        style={{
+          position: 'absolute',
+          width: '100vw',
+          height: '100vh',
+          right: 0,
+        }}
+        src="../static/images/mapsy-flaticon-background.png"
+      />
       <img
         style={{
           position: 'absolute',
