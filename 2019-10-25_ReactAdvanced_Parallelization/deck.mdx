@@ -23,6 +23,9 @@ import morphing from './static/lottie/morphing.json';
 import floating from './static/lottie/floating.json';
 import cogs from './static/lottie/cogs.json';
 import graphs from './static/lottie/graphs.json';
+import map from './static/lottie/map.json';
+import lecture from './static/lottie/lecture.json';
+import summary from './static/lottie/summary.json';
 
 import ReactAdvanced from './components/ReactAdvanced';
 
@@ -74,8 +77,18 @@ import ReactAdvanced from './components/ReactAdvanced';
     borderRadius: 200,
     width: 400,
     height: 400,
+    paddingTop: -20,
   }}
   src="./static/images/alex.png"
+/>
+
+<Lottie
+  options={{
+    loop: true,
+    autoplay: true,
+    animationData: map,
+  }}
+  height="50vh"
 />
 
 </ReactAdvanced>
@@ -83,11 +96,17 @@ import ReactAdvanced from './components/ReactAdvanced';
 <Notes
 >
 
-Hey everyone! My name is Alex and I'm the creator of the Android and iOS application Mapsy, which is a live social map of the world, powered by React Native.
+Creator of Mapsy.
 
-I've been passionate about software development for the past twelve years, but I've only been an active open source contributor for the past two, which makes today my first ever technical conference!
+3.5 Years RN.
 
-I'm extremely honoured to speak with you all today, and please can I just ask you all to remember that if I _do_ make any mistakes, like throw up on stage or something... try to go easy on me.
+Originally native Android.
+
+Little web dev.
+
+Lots of time to write terribly inoptimal algorithms and find all sorts of ways to try and fix them.
+
+Which provides a lot of material for today's talk.
 
 </Notes>
 
@@ -103,18 +122,22 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
   }}
 >
 
-<Fade>
 
-  - **Today's Lightning Talk**
-    - What are the benefits of threading?
-    - How do you spin up threads in React Native?
-
+  - **Lightning Talk ⚡ **
+    - Is it possible to have truly threaded computation in React Native?
 
   - **State of the Field**
     - JavaScript is inherently _synchronous_.
     - Devices are becoming increasingly _parallel_.
 
-</Fade>
+<Lottie
+  options={{
+    loop: true,
+    autoplay: true,
+    animationData: lecture,
+  }}
+  height="50vh"
+/>
 
 </div>
 
@@ -122,10 +145,16 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 
 <Notes
 >
-  - JavaScript is inherently _synchronous_.
-    - We have a single JavaScript thread that is responsible for the execution of all of our logic. And, even when we perform actions which from the outside may _appear_ asynchronous, such as the invocation of a `Promise` or a call to `setTimeout`, JavaScript is merely providing the _illusion_ of asynchrony. Even the _truly_ asynchronous operations, such as network calls using ajax; these are merely bookended by synchronous callbacks in JavaScript.
-  - [and yet,] Devices are becoming increasingly _parallel_.
-    - The iPhone 11 packs the A13 Bionic CPU; a six-core processor, and the latest Samsung Galaxy carries a whopping eight cores. These manufacturing superpowers clearly recognise the gains in computing power that can be achieved through multiprocessing. Likewise, this also demonstrates that these market leaders acnkowledge the demand of software developers to utilise even more background computation than ever before.
+
+Threading.
+
+They would be useful, right?
+
+Some complex functions just don't deserve to steal valuable processing time from React.
+
+Leads to dropped render frames, application starts to jitter. (16ms)
+
+Apple A13 Bionic CPU, 6 Core, (Developers)
 
 </Notes>
 
@@ -177,20 +206,8 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 
 <Notes
 >
-  - **Native Code**
-    - There are no limits to what can be achieved with the native runtime using the RN bridge. Therefore, it's perfectly possible to deploy tuned, threaded equivalents equivalents of your most computationally-intense code to the native application, which will achieve the highest performance.
-    - However, this high performance comes with a severe tradeoff in implementation complexity; as they require both nontrivial development and test effort, _and_ dedicated implementations per-platform for all you polyglots.
-    - In addition, normally the nature of designing threaded computation is that you usually want to spin up new workers for ad-hoc tasks whilst you develop, as the most likely candidates for concurrency usually make themselves known during development time. Because of this, a native implementation is a particularly hard sell for general purpose use.
 
-  - **Delegate**
-    - As an alternative solution, what if it was possible to take advantage of an existing JavaScript runtime, and have it compute your code for you?
-    - There is a well-known technique of exploiting React Native's `<WebView/>` component as a workhorse for computation. What this boils down to is effectively creating a static webpage which serves the code you'd wish to execute embedded within `<script/>` tags. Provided the functions you wish to access are globally available via the `window` object, we can call them by injecting arguments from your JavaScript thread into the `<WebView/>` container. Similarly, we can receive execution results by listening to `onMessage` callbacks from the `<WebView/>`. And all this, _without_ blocking your own application's JavaScript render thread, which provides noticeable performance improvements.
-    - In addition, now that we're working in a webpage, we can access all of the <script/> dependencies we want! You can even take advantage of persistent data using in-browser storage.
-    - Since we're exploiting existing engines (every device has a browser), there's no noticeable increase to your compiled application binaries; however, you _are_ subject to browser support fragmentation. In addition, this isn't _technically_ threaded execution; this is more like spreading your computation across the UI thread.
-
-  - **Hybrid**
-    - The best of both worlds, a hybrid container is effectively a full JavaScript runtime which operates independently of your JavaScript thread, in a dedicated native background thread.
-    - Since both threads are decoupled, you allow them both to execute as fast as possible.
+  - 
 
 </Notes>
 
@@ -210,13 +227,18 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 
   <div>
 
-# Native Threads
+# ⚙️ Native Threads
 
   </div>
 
 </div>
 
 </ReactAdvanced>
+
+<Notes
+>
+ - the beauty is any operation runtime, executable by react
+</Notes>
 
 ---
 
@@ -228,12 +250,11 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
   dark
   steps={[
     { notes: ""},
-    { range: [15, 16] },
-    { range: [19, 19] },
-    { range: [21, 22] },
-    { range: [24, 28] },
-    { range: [29, 41] },
-    { notes: ""},
+    { range: [15, 16], notes: "Export a native module." },
+    { range: [21, 22], notes: "Allocate a thread pool."},
+    { range: [24, 28], notes: "Expose a bridge method."},
+    { range: [29, 41], notes: "Execute your operation. (Imagination!)"},
+    { notes: "Highest performance, highest complexity."},
   ]}
 />
 
@@ -253,13 +274,20 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 
   <div>
 
-# The `<WebView/>`
+# 🖥️ The `<WebView/>`
 
   </div>
 
 </div>
 
 </ReactAdvanced>
+
+<Notes
+>
+  - Every device has a browser
+  - Execute the same javascript code, just on a different javascript thread
+  - injects javascript to construct a communication bridge between rn and webview
+</Notes>
 
 ---
 
@@ -271,13 +299,24 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
   dark
   steps={[
     { notes: ""},
-    { range: [4, 5] },
+    { range: [4, 5], notes: "The <Elsewhere/> handles low-level serialization."},
     { range: [25, 36] },
     { range: [6, 14] },
     { range: [29, 33] },
     { notes: ""},
   ]}
 />
+
+<Notes
+>
+
+DOM Storage
+
+`<script />` dependencies
+
+No compilation dependencies.
+
+</Notes>
 
 ---
 
@@ -295,7 +334,7 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 
   <div>
 
-# Hybrid Containers
+# 🌪️ Hybrid Containers
 
   </div>
 
@@ -314,12 +353,11 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
   dark
   steps={[
     { notes: ""},
-    { range: [3, 3] },
-    { range: [5, 5] },
-    { range: [13, 18] },
-    { range: [7, 11] },
-    { range: [22, 22] },
-    { range: [23, 30] },
+    { range: [4, 4] },
+    { range: [6, 6] },
+    { range: [17, 20] },
+    { range: [8, 14] },
+    { range: [25, 32] },
     { notes: ""},
   ]}
 />
@@ -332,7 +370,18 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 
 <div
   style={{
-    paddingLeft: 5,
+    width: '100vw',
+    height: '100vh',
+  }}
+>
+
+<div
+  style={{
+    position: 'absolute',
+    width: '50vw',
+    height: '50vh',
+    paddingLeft: '10vw',
+    paddingTop: '15vh',
   }}
 >
 
@@ -341,17 +390,43 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 
 
   - **What are the options, again?**
-    - Native Code
-    -  Delegate to a `<WebView />`
-    - Hybrid Containers
-    - *...more?*
+    - ⚙️ Native Code
+    -  🖥️ Delegate to a `<WebView />`
+    - 🌪️ Hybrid Containers
 
 </div>
+<div
+  style={{
+    position: 'absolute',
+    paddingTop: '12.5vh',
+    width: '50vw',
+    height: '50vh',
+    right: 0,
+  }}
+>
+<Lottie
+  options={{
+    loop: true,
+    autoplay: true,
+    animationData: summary,
+  }}
+  height="50vh"
+/>
+</div>
+
+</div>
+
+
 
 </ReactAdvanced>
 
 <Notes
 >
+Native high performance, dev/test complexity.
+
+Web: simplistic and deprecated, browser fragmented, not truly multithreaded (common but dnu), cold start is slow with script dependencies
+
+  - Hybrid: full-featured runtime, surprisingly simple, likely future
 
 </Notes>
 
@@ -372,6 +447,8 @@ I'm extremely honoured to speak with you all today, and please can I just ask yo
 
 
 # Thanks for listening!
+
+## [@cawfree](https://twitter.com/cawfree) / [github.com/cawfree](https://github.com/cawfree)
 
 </div>
 
