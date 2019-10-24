@@ -104,9 +104,11 @@ Originally native Android.
 
 Little web dev.
 
-Lots of time to write terribly inoptimal algorithms and find all sorts of ways to try and fix them.
+As you imagine, very ineffcient architecture.
 
-Which provides a lot of material for today's talk.
+So by a weird twist of fate, my ignorance
+
+has meant I've been interested in finding ways to parallelise React,
 
 </Notes>
 
@@ -125,6 +127,7 @@ Which provides a lot of material for today's talk.
 
   - **Lightning Talk ⚡ **
     - Is it possible to have truly threaded computation in React Native?
+
 
   - **State of the Field**
     - JavaScript is inherently _synchronous_.
@@ -145,12 +148,11 @@ Which provides a lot of material for today's talk.
 
 <Notes
 >
+Even when we talk about good code, such as well optimized matrix math
 
-Threading.
+Some of these just don't deserve to steal valuable processing time from React.
 
-They would be useful, right?
-
-Some complex functions just don't deserve to steal valuable processing time from React.
+But JS is synchronous!
 
 Leads to dropped render frames, application starts to jitter. (16ms)
 
@@ -207,7 +209,9 @@ Apple A13 Bionic CPU, 6 Core, (Developers)
 <Notes
 >
 
-  - 
+Three worked examples.
+
+Either most performant, or noteworthy techniques.
 
 </Notes>
 
@@ -284,9 +288,11 @@ Apple A13 Bionic CPU, 6 Core, (Developers)
 
 <Notes
 >
-  - Every device has a browser
+  - Every device has a browser, and RN can `injectJavaScript` and `onMessage` to construct basic I/O
+  - Write a dedicated WebPage for our functions.
   - Execute the same javascript code, just on a different javascript thread
   - injects javascript to construct a communication bridge between rn and webview
+  - Deprecated/Common
 </Notes>
 
 ---
@@ -299,22 +305,32 @@ Apple A13 Bionic CPU, 6 Core, (Developers)
   dark
   steps={[
     { notes: ""},
-    { range: [4, 5], notes: "The <Elsewhere/> handles low-level serialization."},
-    { range: [25, 36] },
-    { range: [6, 14] },
-    { range: [29, 33] },
-    { notes: ""},
+    { range: [4, 5], notes: "The <Elsewhere/> handles low-level serialization of your function into a webpage."},
+    { range: [6, 14], notes: 'Define your intensive operation. (Imagination!)'},
+    { range: [25, 36], notes: "Provide the function you want to export and handle I/O." },
+    { range: [34, 34], notes: "Implement the callback." },
+    { range: [29, 33], notes: "Listen for messages from the decoupled JS thread." },
+    { notes: "Simplistic, subtle sources of error. Runs on the UI Thread."},
   ]}
 />
 
 <Notes
 >
 
+Expects the scheduled operation to accept two parameters.
+
+Communicate back to RNJ.
+
 DOM Storage
 
-`<script />` dependencies
+`<script />` dependencies, cold start warning from cdn.
 
-No compilation dependencies.
+Obviously, no compilation dependencies.
+
+Subject to browser fragmentation.
+
+Take care not to expose business logic.
+
 
 </Notes>
 
@@ -336,12 +352,24 @@ No compilation dependencies.
 
 # 🌪️ Hybrid Containers
 
-  </div>
+</div>
 
 </div>
 
 </ReactAdvanced>
 
+<Notes
+>
+
+WebView was fairly low level, using message objects, but we're on the right track
+
+Hybrid containers are likely the future of threading for RN.
+
+Like the previous example, concerns using a JS execution environment.
+
+How about a entirely asynchronous, full-fledged NodeJS runtime?
+
+</Notes>
 
 ---
 
@@ -353,18 +381,39 @@ No compilation dependencies.
   dark
   steps={[
     { notes: ""},
-    { range: [4, 4] },
-    { range: [6, 6] },
-    { range: [17, 20] },
-    { range: [8, 14] },
-    { range: [25, 32] },
-    { notes: ""},
+    { range: [4, 4], notes: "A helper wrapper around nodejs-react-native." },
+    { range: [6, 6], notes: "This example depends on two files. The first is your usual App.js." },
+    { range: [25, 32], notes: "The second file defines the functions we want to promisfy." },
+    { range: [17, 20], notes: "Define a script source, and handle the bridge callback."},
+    { range: [8, 14], notes: "Our callback is provided an object whose values are promisified functions." },
+    { notes: "Fast startup, high performance, completely asynchronous, and simple!"},
   ]}
 />
 
 ---
 
 <ReactAdvanced>
+
+<Notes
+>
+
+Janea Systems, relies on postMessage, receiveMessage style behaviour.
+
+Learning lessons from `<Elsewhere/>`.
+
+Lowest common denominator.
+
+Increases your build size around 15MB. (Worth it).
+
+Fast cold start, feels exactly like nodejs.
+
+Test directly on your development machine.
+
+Your threaded nodejs project is bundled.
+
+Extremely trivial to integrate.
+
+</Notes>
 
 ## Summary
 
@@ -389,10 +438,10 @@ No compilation dependencies.
     - They're too simple and too powerful to ignore.
 
 
-  - **What are the options, again?**
-    - ⚙️ Native Code
-    -  🖥️ Delegate to a `<WebView />`
-    - 🌪️ Hybrid Containers
+  - **When should I consider threading?**
+    - Any stateless or complex computation that can be decoupled from your application.
+    - Your functions must be worth the cost of the round-trip-time (RTT). 
+
 
 </div>
 <div
