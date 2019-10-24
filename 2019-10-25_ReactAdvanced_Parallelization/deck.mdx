@@ -17,6 +17,12 @@ export const theme = {
     color: 'white',
     fontWeight: 'bold',
   },
+  ul: {
+    fontSize: '4vh',
+  },
+  p: {
+    fontSize: '16px',
+  },
 };
 
 import morphing from './static/lottie/morphing.json';
@@ -74,10 +80,10 @@ import ReactAdvanced from './components/ReactAdvanced';
 
 <img
   style={{
-    borderRadius: 200,
-    width: 400,
-    height: 400,
-    paddingTop: -20,
+    borderRadius: '15vh',
+    width: '30vh',
+    height: '30vh',
+    marginTop: '-6vh',
   }}
   src="./static/images/alex.png"
 />
@@ -88,7 +94,7 @@ import ReactAdvanced from './components/ReactAdvanced';
     autoplay: true,
     animationData: map,
   }}
-  height="50vh"
+  height="40vh"
 />
 
 </ReactAdvanced>
@@ -133,6 +139,11 @@ has meant I've been interested in finding ways to parallelise React,
     - JavaScript is inherently _synchronous_.
     - Devices are becoming increasingly _parallel_.
 
+<div
+  style={{
+    marginTop: '-4vh',
+  }}
+>
 <Lottie
   options={{
     loop: true,
@@ -141,6 +152,7 @@ has meant I've been interested in finding ways to parallelise React,
   }}
   height="50vh"
 />
+</div>
 
 </div>
 
@@ -288,11 +300,16 @@ Either most performant, or noteworthy techniques.
 
 <Notes
 >
-  - Every device has a browser, and RN can `injectJavaScript` and `onMessage` to construct basic I/O
-  - Write a dedicated WebPage for our functions.
-  - Execute the same javascript code, just on a different javascript thread
-  - injects javascript to construct a communication bridge between rn and webview
-  - Deprecated/Common
+Every device has a browser, and RN can `injectJavaScript` and `onMessage` to construct basic I/O
+
+Write a dedicated WebPage for our functions.
+
+Execute the same javascript code, just on a different javascript thread
+
+injects javascript to construct a communication bridge between rn and webview
+
+Deprecated/Common
+
 </Notes>
 
 ---
@@ -430,7 +447,6 @@ Extremely trivial to integrate.
     width: '50vw',
     height: '50vh',
     paddingLeft: '10vw',
-    paddingTop: '15vh',
   }}
 >
 
@@ -438,8 +454,7 @@ Extremely trivial to integrate.
     - They're too simple and too powerful to ignore.
 
 
-  - **When should I consider threading?**
-    - Any stateless or complex computation that can be decoupled from your application.
+  - **What should I consider? **
     - Your functions must be worth the cost of the round-trip-time (RTT). 
 
 
@@ -447,7 +462,6 @@ Extremely trivial to integrate.
 <div
   style={{
     position: 'absolute',
-    paddingTop: '12.5vh',
     width: '50vw',
     height: '50vh',
     right: 0,
