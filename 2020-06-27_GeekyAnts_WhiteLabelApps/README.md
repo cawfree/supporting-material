@@ -11,7 +11,7 @@ During that time, I've worked on around around three or four production-level Re
 Now, what I'm going to talk about today is one kind of app design that I always seems to keep coming back to. The _White Label App_. I've worked closely on quite a few, and in that time I've seen just about as many instances of design decisions which turn out amazingly well as those which turn out overwhelmingly badly.
 
 So in that light, I'm hoping to achieve two things today:
-  - Firstly, I want to share some of the good design patterns for building White Label Apps that I've seen work in the past. The types of patterns I've been able to sleep comfortably on whilst shipping to prod.
+  - Firstly, I want to share some insight into the common conventions when building White Label Apps that I've seen work in the past. The ways of working that I've been able to sleep comfortably on whilst shipping to prod.
   - Secondly, I want to emphasise just how well-suited React Native is as a framework for producing White Label Apps. Specifically, how React Native has fundamentally changed the game for White Label App development.
 
 So before we get into it, what is a _White Label App_?
@@ -23,8 +23,8 @@ So before we get into it, what is a _White Label App_?
   - Now, White Label Apps are excellent sources of revenue.
     - They have great commercial appeal, since you can provide the customer a _truly bespoke_ look and feel at _little expense_, all done at the configuration level.
     - They lend themselves very well to a pricing-band sales model, where clients can potentially pay more to unlock greater functionality on behalf of their users.
-    - In addition, as you deliver more customers, you broaden your possible audience interacting with your core app. This leads to far more comprehensive analytics for the exact same core codebase. Your quality improves.
     - It is an extremely economically efficient approach to app development. Roughly the same amount of effort goes into designing your core business logic, yet the very same app can be resold and repurposed by many different customers with similar use cases, time and time again.
+    - In addition, as you deliver more customers, you broaden your possible audience interacting with your core app. This leads to far more comprehensive analytics for the exact same core codebase. Your quality improves.
 
 In practice, end users can effectively have multiple instances of the exact same app installed on their phone, just with a different skin, data sources dependent upon the runtime instance. And if you've properly nailed white label design? They are none-the-wiser!
 
