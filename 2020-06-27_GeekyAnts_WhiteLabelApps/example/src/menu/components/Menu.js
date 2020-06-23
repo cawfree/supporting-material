@@ -4,7 +4,6 @@ import {View, StyleSheet, SafeAreaView} from "react-native";
 import UriBox from "react-native-uri-box";
 import {Content, List, Header, ListItem, Text, Icon, Left, Right} from "native-base";
 import Animation from "lottie-react-native";
-import Hyperlink from "react-native-hyperlink";
 
 import {Syntax} from "../../syntax";
 
@@ -16,7 +15,6 @@ const styles = StyleSheet.create({
   orange: {backgroundColor: "orange"},
   bottom: {justifyContent: "flex-end"},
   anim: {width: 300, height: 300},
-  link: {color: "#2980b9", fontSize: 20},
   padding: {padding: 5},
 });
 
@@ -36,7 +34,7 @@ const github = \`https://github.com/\$\{alias\}\`;
 // <3 <3 <3
 `.trim();
 
-const Menu = ({repoAddress, twitterAddress, ...extraProps}) => {
+const Menu = ({onPressFont, onPressUri, ...extraProps}) => {
   return (
     <View
       style={styles.flex}
@@ -64,6 +62,7 @@ const Menu = ({repoAddress, twitterAddress, ...extraProps}) => {
             />
           </ListItem>
           <ListItem
+            onPress={onPressFont}
           >
             <Left>
               <Text
@@ -74,8 +73,8 @@ const Menu = ({repoAddress, twitterAddress, ...extraProps}) => {
               <Icon name="arrow-forward" />
             </Right>
           </ListItem>
-  
           <ListItem
+            onPress={onPressUri}
           >
             <Left>
               <Text
@@ -115,20 +114,9 @@ const Menu = ({repoAddress, twitterAddress, ...extraProps}) => {
   );
 };
 
-//<Hyperlink
-//          linkStyle={styles.link}
-//          linkDefault
-//        >
-//          <Text
-//            children={`${repoAddress}`}
-//          />
-//          <Text
-//            children={`${twitterAddress}`}
-//          />
-//        </Hyperlink>
-
-
 Menu.propTypes = {
+  onPressFont: PropTypes.func.isRequired,
+  onPressUri: PropTypes.func.isRequired,
   repoAddress: PropTypes.string,
   twitterAddress: PropTypes.string,
 };

@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import SyntaxHighlighter from "react-native-syntax-highlighter";
 import {darcula} from "react-syntax-highlighter/styles/hljs";
 
-const Syntax = ({style, code}) => (
+const Syntax = ({style, code, ...extraProps}) => (
   <SyntaxHighlighter
+    {...extraProps}
     style={style}
   	language="javascript"
   	style={darcula}
