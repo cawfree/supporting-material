@@ -9,6 +9,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCrown, faBolt, faHeart} from "@fortawesome/free-solid-svg-icons";
 
 import {Layout} from "./components";
+import {uri, font, props} from "./snippets";
 
 export const theme = {
   ...notes,
@@ -409,11 +410,49 @@ export const theme = {
 
 ---
 
+<CodeSurfer
+  title="react-native-uri-box"
+  code={uri}
+  lang="javascript"
+  showNumbers={false}
+  dark={false}
+  steps={[
+    { notes: ""},
+    { range: [1, 1], notes: "Define a LUT of possible components." },
+    { range: [5, 24], notes: "The <UriBox/> works a lot like an <Image/>."},
+    { range: [9, 9], notes: "Just pass it a source uri."},
+    { range: [6, 8], notes: "And it will attempt to render the contents consistently."},
+    { range: [10, 15], notes: "You can add additional components which will be rendered depending upon the uri's MIME type."},
+    { notes: "Easily provide a deep level of configurability."},
+  ]}
+/>
+
+---
+
 <Layout>
 
 # make the unconfigurable configurable 
 
 </Layout>
+
+---
+
+<CodeSurfer
+  title="react-native-custom-fonts"
+  code={font}
+  lang="javascript"
+  showNumbers={false}
+  dark={false}
+  steps={[
+    { notes: ""},
+    { range: [4, 4], notes: "Import the <CustomFontsProvider />" },
+    { range: [28, 35], notes: "Place it at the root of your app." },
+    { range: [7, 14], notes: "Declare an object of fontFaces which declare the uri of the font." },
+    { range: [16, 26], notes: "Use the useCustomFont hook to render the cached font." },
+    { notes: "Fonts are no longer a bundle dependency!"},
+  ]}
+/>
+
 
 ---
 
@@ -468,5 +507,7 @@ export const theme = {
 ### https://twitter.com/cawfree
 
 ### https://github.com/cawfree
+
+### 
 
 </Layout>
