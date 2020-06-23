@@ -9,7 +9,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCrown, faBolt, faHeart} from "@fortawesome/free-solid-svg-icons";
 
 import {Layout} from "./components";
-import {uri, font, props} from "./snippets";
+import {uri, font, props as propsSnippet} from "./snippets";
 
 export const theme = {
   ...notes,
@@ -453,7 +453,6 @@ export const theme = {
   ]}
 />
 
-
 ---
 
 <Layout>
@@ -463,6 +462,27 @@ export const theme = {
 </Layout>
 
 ---
+
+<CodeSurfer
+  title="propeteer"
+  code={propsSnippet}
+  lang="javascript"
+  showNumbers={false}
+  dark={false}
+  steps={[
+    { notes: ""},
+    { range: [4, 4], notes: "Propeteer is a library that turns raw JSON into React component trees." },
+    { range: [8, 13], notes: "Like the <UriBox/>, it accepts a LookUpTable of possible components." },
+    { range: [14, 45], notes: "The child prop is a JSON representation of your layout." },
+    { range: [15, 15], notes: "Where component types are marked with an underscore." },
+    { range: [28, 44], notes: "And the array of children are declared using a dollar." },
+    { range: [14, 45], notes: "Every other key is treated as a component prop." },
+    { notes: "This kind of data is easily returned by the API, and results in a totally dynamic application layout."},
+  ]}
+/>
+
+---
+
 
 <Layout>
 
