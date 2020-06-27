@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "copy-static": "cp static dist -r",
+    "build": "mdx-deck build deck.mdx",
+    "postbuild": "npm run copy-static",
+    "pdf": "mdx-deck pdf deck.mdx",
+    "image": "mdx-deck screenshot deck.mdx",
+    "help": "mdx-deck",
+    "prepublish-deck": "npm run build",
+    "publish-deck": "gh-pages -d dist"
+  },
+  "author": "Alex Thomas (@cawfree) <hello@cawfree.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
+    "@fortawesome/free-brands-svg-icons": "^5.13.1",
+    "@fortawesome/free-solid-svg-icons": "^5.13.1",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "mdx-deck": "^1.7.7",
+    "mdx-deck-code-surfer": "^0.5.5",
+    "mdx-deck-fade": "^0.0.2",
+    "raw-loader": "^0.5.1",
+    "react": "^16.10.2",
+    "react-gradient": "^1.0.2",
+    "react-lottie": "^1.2.3"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.15",
+    "gh-pages": "^2.0.1"
+  },
+  "name": "GeekyAnts_WhiteLabelApps"
+}
