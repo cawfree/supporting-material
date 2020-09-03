@@ -155,7 +155,7 @@ export default function WebView (props): JSX.Element {
 }
 ```
 
-This approach works too. But it's slightly overkill. It's difficult to interpret what's actually going on, plus you waste a render just trying to decide on what to import, since `useEffect` gets called and then you update the state, triggering a re-render.
+This approach works too. But it's slightly overkill. It's difficult to interpret what's actually going on, what your dependencies are _and_ you waste a render just trying to decide on what to import, since `useEffect` gets called and then you update the state, triggering a re-render. Generally speaking, this approach should be avoided.
 
 ### The bundlers have fundamental differences.
 
@@ -167,7 +167,7 @@ Anybody who has used `react-native-web` in anger has included a library and been
   - There's a _fundamental difference_ in how the bundlers work in React Native and React Native Web.
     - Vanilla React Native's bundler is _greedy_. It watches the entire recursive `node_modules` tree, and watches these for transform changes.
       - This is the reason why bundling for React Native usually takes a little longer than you'd expected it to, when compared to the web.
-      - As an aside, this is one of the things I love about React Native. If a dependency doesn't work the way you want, you can enter the `node_modules` directly and hack some changes in and have these hot reload in the same way as if you'd changed your App's source files.
+      - As an aside, this is one of the things I love about React Native. If a dependency doesn't quite work the way you want, you can enter the `node_modules` directly and hack some changes in and have these hot reload in the same way as if you'd changed your App's source files.
       - I should emphasise that this is purely for experimenting with your ideas. After an npm install (`npm i`), your changes will be lost, so it's only really useful for building up a broad idea of what your next Pull Request is potentially going to look like.
   - Back on the web, since we're not watching our `node_modules`, it means our dependencies that haven't been babelified won't be, and will throw a syntax error on execution.
 
@@ -347,8 +347,11 @@ export default () => (
 
 ### Requests
 
-Next, let's take a look at hitting APIs.
+Okay, let's change tack. What good is an application that doesn't connect to anything, so we'll touch on some API gotchas.
+
+  - Let's get this out of the way:
   - In React Native and React Native Web, we can use standard off-the-shelf HTTP client libraries such as [`axios`]() to hit an API:
+  - Just use `axios`. It is _awesome_.
 
 ```javascript
 import React from "react";
@@ -450,8 +453,31 @@ export default funtion useCorsPrefix(): string {
   - In production, any third party APIs we intend to target should be encapsulated by our own API.
     - This isn't just a great thing for security, but also it helps decouple your application frontend from specific third-party providers. You can just leave that to the API.
 
+### Navigation
+
+  - Next, let's take a look at navigation.
+  - Another great attribute of designing an app using React Native Web, is that it keeps you mindful of the deep linking navigation structure early on, to the point where it's an incredibly powerful attribute you get for free.
+    - I just know we've all worked on those projects where deep linking is kind of an afterthought. It's a new feature in for an iteration, and you somehow have to make your existing navigation system fit.
+    - With React Native Web, the presence of a URL bar forces you to think in terms of random access to your application _directly_.
+      - In addition, the visibility of navigation parameters also help you determine what the _actual_ data dependencies of your screen are, and what should really reside in global application state.
+        - Not to mention provide a simple interface to prototype with malformed data scenarios.
+  - And if your application is already installed on a mobile device, links to your website will naturally open in natively, with the assurance of runtime business logic. After all, it's the same stuff.
+
+### Dimensions
+
+  - Next, a small but important point about `Dimensions`.
+  - It's really common to import `Dimensions` from React Native in basic apps, set your app to fixed portrait mode and be done.
+    - The problem? Users can stretch their browser to any size they like.
+      - `Dimensions` still does the job, kind of, but you have to remember that it's not a hook, right? So you can't really latch the width of a screen and keep it, like you can with standard native applications. When you make a call to `Dimensions.get("window")`, it's just a standard function invocation; there's no association with the render life cycle.
+
+  - There are two solutions to this problem:
+    - First, there's the answer to all problems; hooks. 
+      - There's a super-underrated repository called `react-native-use-dimensions`. This ensures that any changes to the screen trigger re-renders sensitive components.
+    - Secondly, is just to avoid relying upon dimensions altogether. Flex box is very powerful...
+    
 ### Persistence?
-### Navigation?
+
+### Add support for React Native Web?
 
 ### Who is using React Native Web?
   - Uni
