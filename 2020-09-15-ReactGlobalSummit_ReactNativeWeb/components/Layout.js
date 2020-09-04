@@ -16,18 +16,6 @@ const Layout = ({style, children}) => (
     }}
   >
     {children}
-    <div
-      style={{
-        position: "absolute",
-        bottom: "1vh",
-        right: "1vh",
-        fontSize: "4vh",
-      }}
-    >
-      {'by cawfree'}
-      <FontAwesomeIcon style={{marginLeft: '1vw' }} icon={faGithub} />
-      <FontAwesomeIcon style={{marginLeft: '1vw' }} icon={faTwitter} />
-    </div>
   </div>
 );
 

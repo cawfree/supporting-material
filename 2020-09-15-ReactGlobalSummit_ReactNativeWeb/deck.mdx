@@ -1,539 +1,132 @@
-import {Appear, Notes, Head, Image} from 'mdx-deck';
-import {FullscreenCode, Split, SplitRight} from 'mdx-deck/layouts';
-import {notes} from 'mdx-deck/themes';
-import {CodeSurfer} from 'mdx-deck-code-surfer'
-import Fade from 'mdx-deck-fade';
-import Lottie from 'react-lottie';
+import {Appear, Notes, Head, Image} from "mdx-deck";
+import {FullscreenCode, Split, SplitRight} from "mdx-deck/layouts";
+import {hack} from "mdx-deck/themes";
+import {CodeSurfer} from "mdx-deck-code-surfer";
+import Fade from "mdx-deck-fade";
+import Lottie from "react-lottie";
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCrown, faBolt, faHeart} from "@fortawesome/free-solid-svg-icons";
+import {faCrown, faBolt, faHeart, faTv, faMobileAlt} from "@fortawesome/free-solid-svg-icons";
 
 import {Layout} from "./components";
-import {uri, font, props as propsSnippet} from "./snippets";
 
 export const theme = {
-  ...notes,
-  code: {...notes.code, fontWeight: 'bold'},
-  link: {...notes.link, fontWeight: 'bold'},
+  ...hack,
+  code: {...hack.code, fontWeight: 'bold'},
+  link: {...hack.link, fontWeight: 'bold'},
   ul: {fontSize: '4vh'},
   p: {fontSize: '16px'},
 };
 
 <Head>
-  <title>React Native White Label</title>
+  <title>React Global Summit - React Native Web (Senior Track)</title>
 </Head>
 
 <Layout>
 
-# white label react native
+# React Native Web 
 
-<div
-  style={{
-    fontSize: "4vh",
-  }}
->
-  {"where config is king "}
-  <FontAwesomeIcon icon={faCrown} />
+<div style={{ fontSize: "8vh" }}>
+  <FontAwesomeIcon icon={faMobileAlt} />
+  {"  ~  "}
+  <FontAwesomeIcon icon={faTv} />
 </div>
 
 </Layout>
----
-
-<Layout>
-
-<Lottie
-  options={{
-    loop: true,
-    autoplay: true,
-    animationData: require("./assets/puppy.json"),
-    rendererSettings: {preserveAspectRatio: 'xMidYMid slice'},
-  }}
-  width="30vw"
-  height="30vw"
-/>
-
-</Layout>
 
 ---
 
 <Layout>
-
-# i've published a stupid amount of react native open source
-
-</Layout>
-
----
-
-<Layout>
-
-<Lottie
-  options={{
-    loop: true,
-    autoplay: true,
-    animationData: require("./assets/happy.json"),
-    rendererSettings: {preserveAspectRatio: 'xMidYMid slice'},
-  }}
-  width="60vw"
-  height="60vw"
-/>
-
-</Layout>
-
----
-
-<Layout
-  style={{
-    flexDirection: "row",
-  }}
->
-
-<Lottie
-  options={{
-    loop: true,
-    autoplay: true,
-    animationData: require("./assets/design.json"),
-    rendererSettings: {preserveAspectRatio: 'xMidYMid slice'},
-  }}
-  width="30vw"
-  height="30vw"
-/>
-
-<Lottie
-  options={{
-    loop: true,
-    autoplay: true,
-    animationData: require("./assets/react.json"),
-    rendererSettings: {preserveAspectRatio: 'xMidYMid slice'},
-  }}
-  width="30vw"
-  height="30vw"
-/>
-
-</Layout>
-
----
-
-<Layout
->
-
-  # what is a white label app?
-
-</Layout>
-
----
-
-<Layout
->
-
-  ## an app whose presentation
-
-  <span
-    style={{
-      fontSize: "8vh",
-      fontWeight: "bold",
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/react-logo.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
     }}
-  >
-    {"is mostly api defined "}
-    <FontAwesomeIcon icon={faBolt} />
-  </span>
+    width="30vw"
+    height="30vw"
+  />
+</Layout>
 
+
+---
+
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/dragon.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="50vw"
+    height="50vw"
+  />
 </Layout>
 
 ---
 
 <Layout>
-
-<Lottie
-  options={{
-    loop: true,
-    autoplay: true,
-    animationData: require("./assets/money.json"),
-    rendererSettings: {preserveAspectRatio: 'xMidYMid slice'},
-  }}
-  width="90vw"
-  height="30vw"
-/>
-
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/tetris.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="50vw"
+    height="50vw"
+  />
 </Layout>
 
 ---
 
 <Layout>
-
-# they easily embrace a bespoke look and feel
-
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/octocat.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="50vw"
+    height="50vw"
+  />
 </Layout>
 
 ---
 
 <Layout>
-
-# you can keep selling the same code
-
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/react-logo.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="30vw"
+    height="30vw"
+  />
 </Layout>
 
 ---
 
 <Layout>
-
-<Lottie
-  options={{
-    loop: true,
-    autoplay: true,
-    animationData: require("./assets/graph.json"),
-    rendererSettings: {preserveAspectRatio: 'xMidYMid slice'},
-  }}
-  width="40vw"
-  height="30vw"
-/>
-
-</Layout>
-
----
-
-<Layout>
-
-<img
-  style={{
-    width: "100vw"
-  }}
-  src={"./assets/api_flow.png"}
-/>
-
-</Layout>
-
----
-
-<Layout>
-
-# WLAs have few compiled styles and assets
-
-</Layout>
-
----
-
-<Layout>
-
-<Lottie
-  options={{
-    loop: true,
-    autoplay: true,
-    animationData: require("./assets/cloud.json"),
-    rendererSettings: {preserveAspectRatio: 'xMidYMid slice'},
-  }}
-  width="50vw"
-  height="50vw"
-/>
-
-</Layout>
-
----
-
-<Layout>
-
-<Lottie
-  options={{
-    loop: true,
-    autoplay: true,
-    animationData: require("./assets/sushi.json"),
-    rendererSettings: {preserveAspectRatio: 'xMidYMid slice'},
-  }}
-  width="50vw"
-  height="50vw"
-/>
-
-</Layout>
-
----
-
-<Layout>
-
-# feature parity is very difficult
-
-</Layout>
-
----
-
-<Layout>
-
-# complexity scales with configurability
-
-</Layout>
-
----
-
-<Layout>
-
-<Lottie
-  options={{
-    loop: true,
-    autoplay: true,
-    animationData: require("./assets/strategy.json"),
-    rendererSettings: {preserveAspectRatio: 'xMidYMid slice'},
-  }}
-  width="33vw"
-  height="50vw"
-/>
-
-</Layout>
-
----
-
-<Layout>
-
-## SELECT * FROM tbl_style WHERE
-
-<Lottie
-  options={{
-    loop: true,
-    autoplay: true,
-    animationData: require("./assets/dba.json"),
-    rendererSettings: {preserveAspectRatio: 'xMidYMid slice'},
-  }}
-  width="30vw"
-  height="30vw"
-/>
-
-</Layout>
-
----
-
-<Layout>
-
-# react native has solved most of these issues
-
-</Layout>
-
----
-
-<Layout>
-
-# managing feature parity is a thing of the past
-
-### (for the most part!)
-
-</Layout>
-
----
-
-<Layout>
-
-<img
-  src={"./assets/stylesheet.png"}
-  style={{
-    height: "80vh",
-  }}
-/>
-
-### https://github.com/vhpoet/react-native-styling-cheat-sheet
-
-</Layout>
-
----
-
-<Layout>
-
-<img
-  src={"./assets/context.jpg"}
-  style={{
-    width: "60vw",
-  }}
-/>
-
-</Layout>
-
----
-
-<Layout>
-
-# okay i get it, so styling is easy
-
-</Layout>
-
----
-
-<Layout
-  style={{
-    flexDirection: "row",
-  }}
->
-
-<Lottie
-  options={{
-    loop: true,
-    autoplay: true,
-    animationData: require("./assets/heart.json"),
-    rendererSettings: {preserveAspectRatio: 'xMidYMid slice'},
-  }}
-  width="30vw"
-  height="30vw"
-/>
-
-<Lottie
-  options={{
-    loop: true,
-    autoplay: true,
-    animationData: require("./assets/react.json"),
-    rendererSettings: {preserveAspectRatio: 'xMidYMid slice'},
-  }}
-  width="30vw"
-  height="30vw"
-/>
-
-</Layout>
-
----
-
-<Layout>
-
-<Lottie
-  options={{
-    loop: true,
-    autoplay: true,
-    animationData: require("./assets/code.json"),
-    rendererSettings: {preserveAspectRatio: 'xMidYMid slice'},
-  }}
-  width="60vw"
-  height="60vw"
-/>
-
-</Layout>
----
-
-<Layout>
-
-# three key principles
-
-</Layout>
-
----
-
-<Layout>
-
-# everything can be a client decision
-
-</Layout>
-
----
-
-<CodeSurfer
-  title="react-native-uri-box"
-  code={uri}
-  lang="javascript"
-  showNumbers={false}
-  dark={false}
-  steps={[
-    { notes: ""},
-    { range: [1, 1], notes: "Define a LUT of possible components." },
-    { range: [5, 24], notes: "The <UriBox/> works a lot like an <Image/>."},
-    { range: [9, 9], notes: "Just pass it a source uri."},
-    { range: [6, 8], notes: "And it will attempt to render the contents consistently."},
-    { range: [10, 15], notes: "You can add additional components which will be rendered depending upon the uri's MIME type."},
-    { notes: "Easily provide a deep level of configurability."},
-  ]}
-/>
-
----
-
-<Layout>
-
-# make the unconfigurable configurable 
-
-</Layout>
-
----
-
-<CodeSurfer
-  title="react-native-custom-fonts"
-  code={font}
-  lang="javascript"
-  showNumbers={false}
-  dark={false}
-  steps={[
-    { notes: ""},
-    { range: [4, 4], notes: "Import the <CustomFontsProvider />" },
-    { range: [28, 35], notes: "Place it at the root of your app." },
-    { range: [7, 14], notes: "Declare an object of fontFaces which declare the uri of the font." },
-    { range: [16, 26], notes: "Use the useCustomFont hook to render the cached font." },
-    { notes: "Fonts are no longer a bundle dependency!"},
-  ]}
-/>
-
----
-
-<Layout>
-
-# layout is config
-
-</Layout>
-
----
-
-<CodeSurfer
-  title="propeteer"
-  code={propsSnippet}
-  lang="javascript"
-  showNumbers={false}
-  dark={false}
-  steps={[
-    { notes: ""},
-    { range: [4, 4], notes: "Propeteer is a library that turns raw JSON into React component trees." },
-    { range: [8, 13], notes: "Like the <UriBox/>, it accepts a LookUpTable of possible components." },
-    { range: [14, 45], notes: "The child prop is a JSON representation of your layout." },
-    { range: [15, 15], notes: "Where component types are marked with an underscore." },
-    { range: [28, 44], notes: "And the array of children are declared using a dollar." },
-    { range: [14, 45], notes: "Every other key is treated as a component prop." },
-    { notes: "This kind of data is easily returned by the API, and results in a totally dynamic application layout."},
-  ]}
-/>
-
----
-
-
-<Layout>
-
-# summary
-
-</Layout>
-
----
-
-<Layout>
-
-# react native makes white label easy 
-
-</Layout>
-
----
-
-<Layout>
-
-# react native makes white label powerful 
-
-</Layout>
-
----
-
-
-<Layout>
-
-<span
-  style={{
-    fontSize: "10vh",
-    fontWeight: "bold",
-  }}
->
-  {"thanks for listening "}
-  <FontAwesomeIcon icon={faHeart} />
-</span>
-
-
-### if you like my stuff please follow me on
-
-### https://twitter.com/cawfree
-
-### https://github.com/cawfree
-
-### 
-
+  <img
+    style={{
+      width: "100vw",
+    }}
+    src="./assets/image/ink.svg"
+  />
 </Layout>
