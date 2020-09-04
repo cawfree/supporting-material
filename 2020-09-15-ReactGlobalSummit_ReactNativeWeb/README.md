@@ -20,7 +20,7 @@
     - The cool kids call this a `Quine`.
 
     - And all of this doesn't even touch upon the React renderer itself, whereby we can override and repurpose the fundamental mechanics of what it means to express computation using React, with a view to tackle whatever use case we can possibly imagine.
-      - I mean, the outputs of our render methods don't necessarily even have to be graphics anymore. You could write to a file.
+      - I mean, the outputs of our render methods don't necessarily even have to be graphics anymore. You could just as easily write to a file.
       - Yet it still carries the guarantee and performance of the component life cycle.
       - So when you really step back and begin to think deeply about it, the level of expression and utility that React enables is truly amazing.
 
@@ -465,7 +465,7 @@ export default funtion useCorsPrefix(): string {
 
 ### Dimensions
 
-  - Next, a small but important point about `Dimensions`.
+  - Next, a small but especially important point about `Dimensions`.
   - It's really common to import `Dimensions` from React Native in basic apps, set your app to fixed portrait mode and be done.
     - The problem? Users can stretch their browser to any size they like.
       - `Dimensions` still does the job, kind of, but you have to remember that it's not a hook, right? So you can't really latch the width of a screen and keep it, like you can with standard native applications. When you make a call to `Dimensions.get("window")`, it's just a standard function invocation; there's no association with the render life cycle.
@@ -512,35 +512,3 @@ You can write react directly. But don't. It turts portability.
 You can find this presentation, twitter, uni, gitcoin etc.
 
 gitcoin, getuni.app, twitter
-
-# Notes on call with Alina.
-  - Global 24hr
-  - 20 -> 21st August
-  - _One hour_ for your talk.
-  - Pitch preferences for timezone.
-  - Chance of talking in the middle of the night
-  - Two conferences; upcoming Java. Previously node.js.
-  - Global online 24 hours. Lots of people.
-  - To hear the speeches. Big registration list.
-  - Build a community of developers together.
-  - International summit. Anyone can join. Add some knowledge. Learn something new, dive deeper.
-  - React Summit; touching the topic of React.
-
-Process in General
-  - Roughly three/four stages of preparation.
-  - Discuss the topics.
-  - Document on topics. Abstract about the topic; bullet points.
-  - Specifics of the topic. Review process.
-  - Detail into program blocks.
-  - Feedback. Continue working on presentation.
-  - Review for program and rehearsals and that kind of things.
-  - Link to program for onine conferences in zoom.
-  - Individual login + password.
-  - Q&A.
-  - Timeline -> Mark the milestones and dates/deadlines. Plan time accordingly.
-  - Time commitment; apart from preparation, two or three hours aside from the talk and communicate.
-  - Live Chat
-  - link to website
-  - Super practical talks.
-  - Level of depth between talks approaching the talk.
-  - Ask the committee which topics need more speakers.
