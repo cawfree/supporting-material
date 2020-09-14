@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import logo from './logo.png';
 
+// https://www.getuni.app/static/media/logo.f5a08cbc.svg
+
 class App extends Component {
   state = {
     spinValue: new Animated.Value(0),
