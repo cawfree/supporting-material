@@ -135,6 +135,23 @@ export const theme = {
 ---
 
 <Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/pay.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="30vw"
+    height="30vw"
+  />
+</Layout>
+
+---
+
+<Layout>
   <img
     style={{
       width: "100vw",
@@ -605,3 +622,60 @@ export const theme = {
 
 ---
 
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  }}
+>
+  <span
+    style={{
+      fontSize: "3em",
+    }}
+  >
+    {"> @cawfree"}
+    {" "}
+    <FontAwesomeIcon icon={faTwitter} />
+    {" "}
+    <FontAwesomeIcon icon={faGithub} />
+  </span>
+  
+  <span
+    style={{
+      fontSize: "2em"
+    }}
+  >
+    Thanks for listening!
+    {" "}
+    <FontAwesomeIcon icon={faHeart} />
+  </span>
+</div>
+
+---
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  }}
+>
+  <span
+    style={{
+      fontSize: "3em",
+    }}
+  >
+    {"> Join our beta!"}
+  </span>
+  
+  <span
+    style={{
+      fontSize: "2em"
+    }}
+  >
+    https://getuni.app
+    {" "}
+    <FontAwesomeIcon icon={faBolt} />
+  </span>
+</div>
