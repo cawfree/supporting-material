@@ -449,6 +449,41 @@ export const theme = {
 
 ---
 
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+  <span
+    style={{ fontSize: "1.5em" }}
+    children={"\"main\": \"dist\","}
+  />
+  <span
+    style={{ fontSize: "1.5em" }}
+    children={"\"scripts\": {\n"}
+  />
+  <span
+    style={{ paddingLeft: "1.5em", fontSize: "1.5em" }}
+    children={"..."}
+  />
+  <span
+    style={{ paddingLeft: "1.5em", fontSize: "1.5em" }}
+    children={"\"build\": \"babel src --out-dir dist\","}
+  />
+  <span
+    style={{ paddingLeft: "1.5em", fontSize: "1.5em" }}
+    children={"..."}
+  />
+  <span
+    style={{ fontSize: "1.5em" }}
+    children={"}"}
+  />
+</div>
+
+
+---
+
 # 4. The Bundlers are Different 
 
 <span style={{ fontSize: "3em" }}>

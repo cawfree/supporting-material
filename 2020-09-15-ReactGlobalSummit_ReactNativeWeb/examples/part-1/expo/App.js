@@ -1,6 +1,8 @@
 import * as React from "react";
 import { View, Text } from "react-native";
 
+// https://www.getuni.app/static/media/logo.f5a08cbc.svg
+
 export default function App() {
   return (
     <View
