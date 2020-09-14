@@ -7,6 +7,8 @@ import Lottie from "react-lottie";
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
+  faPepperHot,
+  faCompass,
   faCrown,
   faWrench,
   faBolt,
@@ -17,6 +19,7 @@ import {
   faDna,
   faPaintBrush,
   faCloud,
+  faRulerCombined,
 } from "@fortawesome/free-solid-svg-icons";
 import {faTwitter, faGithub} from "@fortawesome/free-brands-svg-icons";
 
@@ -445,6 +448,23 @@ export const theme = {
 
 ---
 
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/wizard.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="50vw"
+    height="50vw"
+  />
+</Layout>
+
+---
+
 <div
   style={{
     display: "flex",
@@ -462,7 +482,15 @@ export const theme = {
 
 ---
 
-# 3. Mixed Imports
+<span
+  style={{
+    fontSize: "3em",
+    textAlign: "center",
+    fontWeight: "bold"
+  }}
+>
+  3. Mixed Imports <FontAwesomeIcon icon={faPepperHot} />
+</span>
 
 ---
 
@@ -523,8 +551,6 @@ export const theme = {
   />
 </div>
 
-
-
 ---
 
 <span style={{ fontSize: "3em", fontWeight: "bold" }}>
@@ -552,7 +578,7 @@ export const theme = {
 ---
 
 <span style={{ fontSize: "3em", fontWeight: "bold" }}>
-  6. Requests <FontAwesomeIcon icon={faCloud} />
+  6. Dimensions <FontAwesomeIcon icon={faRulerCombined} />
 </span>
 
 ---
@@ -565,60 +591,50 @@ export const theme = {
 >
   <span
     style={{
-      fontSize: "2.0em",
+      fontSize: "1.0em",
     }}
   >
-    {"await axios({"}
+    {"import { Dimensions } from \"react-native\";"}
   </span>
   <span
     style={{
-      fontSize: "2.0em",
-      paddingLeft: "2.0em",
+      fontSize: "1.0em",
     }}
   >
-    {" url: \"https://api.twitter.com\","}
-  </span>
-  <span
-    style={{
-      fontSize: "2.0em",
-      paddingLeft: "2.0em",
-    }}
-  >
-    {" method: \"post\","}
-  </span>
-  <span
-    style={{
-      fontSize: "2.0em",
-      paddingLeft: "2.0em",
-    }}
-  >
-    {" data: {...},"}
-  </span>
-  <span
-    style={{
-      fontSize: "2.0em",
-    }}
-  >
-    {"}); // "}
-    <FontAwesomeIcon icon={faHeart} />
+    {"const { width, height } = Dimensions.get(\"window\");"}
   </span>
 </div>
 
 ---
 
-# 99% of the time, it won't work. :-)
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+  <span
+    style={{
+      fontSize: "1.0em",
+    }}
+  >
+    {"import { useWindowDimensions } from \"react-native\";"}
+  </span>
+  <span
+    style={{
+      fontSize: "1.0em",
+    }}
+  >
+    {"const { width, height } = useWindowDimensions();"}
+  </span>
+</div>
+
 
 ---
 
-# C.O.R.S
-
----
-
-# Careless Orator Regrets Slideshow
-
----
-
-# Cross Origin Resource Sharing
+<span style={{ fontSize: "3em", fontWeight: "bold" }}>
+  7. Navigation <FontAwesomeIcon icon={faCompass} />
+</span>
 
 ---
 
@@ -650,6 +666,16 @@ export const theme = {
     {" "}
     <FontAwesomeIcon icon={faHeart} />
   </span>
+  <span
+    style={{
+      marginTop: "2em",
+      textAlign: "center",
+      fontSize: "2em"
+    }}
+  >
+    Pick up the deck at github.com/cawfree/supporting-material
+  </span>
+
 </div>
 
 ---
@@ -664,6 +690,7 @@ export const theme = {
   <span
     style={{
       fontSize: "3em",
+      fontWeight: "bold",
     }}
   >
     {"> Join our beta!"}

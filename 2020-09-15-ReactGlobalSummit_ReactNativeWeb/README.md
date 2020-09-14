@@ -92,6 +92,12 @@ So first, let's take a look at creating a project.
     - Shout out to `react-native-fs` and `react-native-crypto`, by the way. 
       - Now, it _is_ possible to shim support for these libraries, but this isn't a guarantee. Shimming is akin to pollingfilling, so there's no guarantee of compliance or feature-completeness with whoever depends upon the library. So it can be risky to go down this route.
       - The way we need to approach these problems is that we shouldn't polyfill, we should _ponyfill_, because ponies are pretty.
+
+  - A great way of ponyfilling is by using [**Browserify**](), which is capable of generating browser-compatible exports of core Node.js binaries automagically.
+    - Rather amazingly, the outputs generated from Browserify are compatible with React Native, because the React Native runtime exports a very similar environment interface to the browser, no doubt inspired by React.
+      - Many of the libraries we use in our React Native stack at Uni are in fact browserified, since cryptocurrency frameworks generally rely upon these once-inaccessible frameworks such as `crypto`.
+    - So if there _are_ libraries out there that you've felt in the past you couldn't hook up to React Native, think again!
+
     - Another problem you can encounter is that some of these libraries might make references to DOM elements like divs (`<div />`) or paragraphs (`<p />`), for example. And React Native Web is just like "yeah man, that's fine, keep it coming". But there's no concept of these kinds of elements in React Native mobile. So you have to look out for this.
 
 > So, let's ground this with an example.
@@ -345,136 +351,33 @@ export default () => (
 );
 ```
 
-### Requests
+### Dimensions
 
-Okay, let's change tack. What good is an application that doesn't connect to anything, so we'll touch on some API gotchas.
+  - Next, a small but especially important point about `Dimensions`.
+  - It's really common to import `Dimensions` from React Native in basic apps, set your app to fixed portrait mode and be done. That'll be like 99% of all apps.
+  - Then you usually make references to window dimensions everywhere, including leaking it into layouts instead of referring to attributes such as `"100%"`.
 
-  - Let's get this out of the way:
-  - In React Native and React Native Web, we can use standard off-the-shelf HTTP client libraries such as [`axios`]() to hit an API:
-  - Just use `axios`. It is _awesome_.
+  - The problem we face in React Native Web is a new one: users can stretch their browser to any size they like.
+      - `Dimensions` still does the job, but only kind of. You have to remember that it's not a hook, right? So you can't really latch the width of a screen and keep it, like you can with standard native applications. When you make a call to `Dimensions.get("window")`, it's just a standard function invocation; there's no association with the render life cycle.
 
-```javascript
-import React from "react";
-import { TouchableOpacity, StyleSheet } from "react-native";
-import axios from "axios";
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "green",
-  },
-});
-
-const url = "https://jsonplaceholder.typicode.com/todos/1";
-
-export default () => (
-  <TouchableOpacity
-    style={styles.container}
-    onPress={async () => {
-      const { data } = await axios({
-        url,
-        method: "post",
-        data: { some: "data" },
-      });
-      console.log({ data });
-    }}
-  />
-);
-```
-
-  - This works pretty much as you'd expect on native platforms.
-    - On the Web, however it won't!
-    - This is because Cross-Origin-Resource-Sharing (CORS) rules commonly prevent you from being able make such a request.
-    - You'll actually come across this error frequently, since it's a safe default for cloud services like Google App Engine or AWS to restrict the presence of CORS as a response header.
-
-> Show CORS Error.
-
-  - Now, there are a couple of workarounds for this.
-    - The obvious workaround is to host the same API on your own domain that you serve the app. But for third party providers, this isn't possible without essentially wrapping the API.
-    - Alternatively, you can use `https://cors-anywhere.herokuapp.com/` to handle your request for you:
-
-```javascript
-import React from "react";
-import { TouchableOpacity, StyleSheet } from "react-native";
-import axios from "axios";
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "green",
-  },
-});
-
-const url = "https://jsonplaceholder.typicode.com/todos/1";
-
-export default () => (
-  <TouchableOpacity
-    style={styles.container}
-    onPress={async () => {
-      const { data } = await axios({
-        // Strips CORS response headers. That's it!
-        url: `https://cors-anywhere.herokuapp.com/${url}`, 
-        method: "post",
-        data: { some: "data" },
-      });
-      console.log({ data });
-    }}
-  />
-);
-```
-
-  - This is great for experimenting. In a production however, it would be more preferable to hit an [express middleware](https://www.github.com/cawfree/express-cors-anywhere) that performs the same job.
-    - A lot of us share CORS Anywhere, which means that it's subject to slowdowns due to shared traffic.
-    - Additionally, it's not a safe way to fire over sensitive information.
-
-  - So all of this seems good, but remember the first maxim! Don't trust, _verify_. Let's go back to our native example.
-    - Now you'll find your request _doesn't_ work. Safe defaults on native have an intuition that your response has been manipulated, and the response is not permitted to propagate any further.
-    - So what's the final solution? A hook of course! It's always hooks.
-
-```javascript
-import { Platform } from "react-native";
-
-export default funtion useCorsPrefix(): string {
-  if (Platform.OS === "web") {
-    return "https://cors-anywhere.herokuapp.com/";
-  }
-  return "";
-};
-
-// Example:
-// import { default as useCorsPrefix } from "./useCorsPrefix";
-// 
-// const pfx = useCorsPrefix();
-// const url = `${pfx}https://jsonplaceholder.typicode.com/todos/1`;
-```
-
-  - Now, this is all a really useful way to you start delivering fast, but you don't want to do this for everything.
-  - As we've seen, experimenting with a CORS response is treated as a security error, and rightly so.
-  - In production, any third party APIs we intend to target should be encapsulated by our own API.
-    - This isn't just a great thing for security, but also it helps decouple your application frontend from specific third-party providers. You can just leave that to the API.
-
+  - There are two solutions to this problem:
+    - First, there's the answer to all problems; hooks, which are synchronized with the render life cycle, as opposed to lossy polling.
+      - The way this is works is by calling `addEventListener` to the `Dimensions` export.
+      - We're in luck though. There's a super-underrated repository called `react-native-use-dimensions`. This ensures that any changes to the screen trigger re-renders sensitive components.
+    - Secondly, is just to avoid relying upon dimensions altogether. Flex box is very powerful...
+  - I _should_ emphasize that the hook `useWindowDimensions` has recently been introduced to React Native.
+    
 ### Navigation
 
   - Next, let's take a look at navigation.
   - Another great attribute of designing an app using React Native Web, is that it keeps you mindful of the deep linking navigation structure early on, to the point where it's an incredibly powerful attribute you get for free.
-    - I just know we've all worked on those projects where deep linking is kind of an afterthought. It's a new feature in for an iteration, and you somehow have to make your existing navigation system fit.
+    - I just know we've all worked on those projects where deep linking is kind of an afterthought. It's a new feature scheduled for an iteration, and you somehow have to make your existing navigation system fit. And it hurts.
     - With React Native Web, the presence of a URL bar forces you to think in terms of random access to your application _directly_.
       - In addition, the visibility of navigation parameters also help you determine what the _actual_ data dependencies of your screen are, and what should really reside in global application state.
         - Not to mention provide a simple interface to prototype with malformed data scenarios.
-  - And if your application is already installed on a mobile device, links to your website will naturally open in natively, with the assurance of runtime business logic. After all, it's the same stuff.
+      - Anyway, I'm sure we've talked _a lot_ about state management at this conference.
+  - And if your application is already installed on a mobile device, links to your website will naturally open in natively, with the assurance of runtime business logic. After all, it's the same codebase.
 
-### Dimensions
-
-  - Next, a small but especially important point about `Dimensions`.
-  - It's really common to import `Dimensions` from React Native in basic apps, set your app to fixed portrait mode and be done.
-    - The problem? Users can stretch their browser to any size they like.
-      - `Dimensions` still does the job, kind of, but you have to remember that it's not a hook, right? So you can't really latch the width of a screen and keep it, like you can with standard native applications. When you make a call to `Dimensions.get("window")`, it's just a standard function invocation; there's no association with the render life cycle.
-
-  - There are two solutions to this problem:
-    - First, there's the answer to all problems; hooks. 
-      - There's a super-underrated repository called `react-native-use-dimensions`. This ensures that any changes to the screen trigger re-renders sensitive components.
-    - Secondly, is just to avoid relying upon dimensions altogether. Flex box is very powerful...
-    
 ### Persistence?
 
 ### Add support for React Native Web?
