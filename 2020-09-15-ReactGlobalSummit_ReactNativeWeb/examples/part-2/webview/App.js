@@ -1,5 +1,7 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { Platform, SafeAreaView, View, StyleSheet } from "react-native";
+//import { WebView } from "react-native-webview";
+//import { WebView } from "react-native-web-webview";
 
 const styles = StyleSheet.create({
   webview: {
@@ -7,16 +9,17 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function App() {
+export default function App() { 
   return (
     <View style={StyleSheet.absoluteFill}>
-      <View
-        style={{
-          width: 100,
-          height: 100,
-          backgroundColor: "green",
-        }}
-      />
     </View>
   );
 }
+
+
+
+const Component = Platform.select({
+  ios: require("react-native-webview").WebView,
+  android: require("react-native-webview").WebView,
+  web: require("react-native-web-webview").WebView,
+});

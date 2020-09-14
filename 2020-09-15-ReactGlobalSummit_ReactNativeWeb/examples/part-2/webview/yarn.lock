@@ -6543,10 +6543,10 @@ react-native-unimodules@~0.10.1:
     unimodules-sensors-interface "~5.2.1"
     unimodules-task-manager-interface "~5.2.1"
 
-react-native-web-webview@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-native-web-webview/-/react-native-web-webview-1.0.2.tgz#c215efa70c17589f2c8d640b1f1dc669b18c6e02"
-  integrity sha512-oNAYNuqUqeqTuAAdIejzDqvUtYA+k5lrvhUYmASdUznZNmyIaoQFA6OKoA4K9F3wdMvark42vUXkUWIp875ewg==
+react-native-web-webview@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-web-webview/-/react-native-web-webview-1.0.1.tgz#af7f479194b7ce9c6ad3ad872a994d927418c4f7"
+  integrity sha512-5uswyqzSB51O4Nw95tpL6xpdJwFMgTTTahph9hKUFvjEV/b0hn9KgeEqmv++yca97LJQvOOayMwxh2RfgIO0DQ==
   dependencies:
     qs "^6.5.1"
 
