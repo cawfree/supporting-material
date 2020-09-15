@@ -33,12 +33,12 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <HoverTouchableOpacity
+      <TouchableOpacity
         style={{ active: { backgroundColor: "blue" } }}
         onPress={() => alert('hi')}
       >
         <Text children="Hover!" />
-      </HoverTouchableOpacity>
+      </TouchableOpacity>
     </View>
   );
 }

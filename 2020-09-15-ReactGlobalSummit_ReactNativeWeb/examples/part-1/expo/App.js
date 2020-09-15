@@ -30,9 +30,9 @@ export default function App() {
 
 
 
-import { SvgUri } from "react-native-svg";
-<SvgUri
-        width="100"
-        height="100"
-        uri="https://www.getuni.app/static/media/logo.f5a08cbc.svg"
-      />
+//import { SvgUri } from "react-native-svg";
+//<SvgUri
+//        width="100"
+//        height="100"
+//        uri="https://www.getuni.app/static/media/logo.f5a08cbc.svg"
+//      />
