@@ -221,6 +221,21 @@ export const theme = {
 
 ---
 
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/react-logo.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="30vw"
+    height="30vw"
+  />
+</Layout>
+
 ---
 
 # Hi.
@@ -342,6 +357,15 @@ export const theme = {
     <FontAwesomeIcon icon={faBolt} />
   </span>
 </div>
+
+---
+
+<img
+  style={{
+    height: "80vh",
+  }}
+  src="./assets/image/expo.png"
+/>
 
 ---
 
@@ -646,12 +670,6 @@ export const theme = {
   </span>
 </div>
 
-
----
-
-<span style={{ fontSize: "3em", fontWeight: "bold" }}>
-  7. Navigation <FontAwesomeIcon icon={faCompass} />
-</span>
 
 ---
 
