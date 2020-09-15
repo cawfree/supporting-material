@@ -15,11 +15,3 @@ export default function App() {
     </View>
   );
 }
-
-
-
-const Component = Platform.select({
-  ios: require("react-native-webview").WebView,
-  android: require("react-native-webview").WebView,
-  web: require("react-native-web-webview").WebView,
-});
