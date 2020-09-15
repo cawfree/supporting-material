@@ -35,6 +35,7 @@ export default function App() {
     >
       <HoverTouchableOpacity
         style={{ active: { backgroundColor: "blue" } }}
+        onPress={() => alert('hi')}
       >
         <Text children="Hover!" />
       </HoverTouchableOpacity>
