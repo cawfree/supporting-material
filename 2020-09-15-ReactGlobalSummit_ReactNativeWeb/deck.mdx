@@ -577,6 +577,23 @@ export const theme = {
 
 ---
 
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/hover.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="30vw"
+    height="30vw"
+  />
+</Layout>
+
+---
+
 <span style={{ fontSize: "3em", fontWeight: "bold" }}>
   6. Dimensions <FontAwesomeIcon icon={faRulerCombined} />
 </span>
