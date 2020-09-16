@@ -1,0 +1,866 @@
+import {Appear, Notes, Head, Image} from "mdx-deck";
+import {FullscreenCode, Split, SplitRight} from "mdx-deck/layouts";
+import {hack} from "mdx-deck/themes";
+import {CodeSurfer} from "mdx-deck-code-surfer";
+import Fade from "mdx-deck-fade";
+import Lottie from "react-lottie";
+
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {
+  faPepperHot,
+  faCompass,
+  faCrown,
+  faWrench,
+  faBolt,
+  faHeart,
+  faTv,
+  faMobileAlt,
+  faTimes,
+  faDna,
+  faPaintBrush,
+  faCloud,
+  faRulerCombined,
+} from "@fortawesome/free-solid-svg-icons";
+import {faTwitter, faGithub} from "@fortawesome/free-brands-svg-icons";
+
+import {Layout} from "./components";
+import {aphrodite, quine} from "./snippets";
+
+export const theme = {
+  ...hack,
+  code: {...hack.code, fontWeight: 'bold'},
+  link: {...hack.link, fontWeight: 'bold'},
+  ul: {fontSize: '4vh'},
+  p: {fontSize: '16px'},
+};
+
+<Head>
+  <title>React Global Summit - React Native Web (Senior Track)</title>
+</Head>
+
+<Layout>
+
+# React Native Web 
+
+<div style={{ fontSize: "8vh" }}>
+  <FontAwesomeIcon icon={faMobileAlt} />
+  {"  ~  "}
+  <FontAwesomeIcon icon={faTv} />
+</div>
+
+</Layout>
+
+---
+
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/react-logo.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="30vw"
+    height="30vw"
+  />
+</Layout>
+
+---
+
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/dragon.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="50vw"
+    height="50vw"
+  />
+</Layout>
+
+---
+
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/tetris.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="50vw"
+    height="50vw"
+  />
+</Layout>
+
+---
+
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/octocat.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="50vw"
+    height="50vw"
+  />
+</Layout>
+
+---
+
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/react-logo.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="30vw"
+    height="30vw"
+  />
+</Layout>
+
+---
+
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/pay.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="30vw"
+    height="30vw"
+  />
+</Layout>
+
+---
+
+<Layout>
+  <img
+    style={{
+      width: "100vw",
+    }}
+    src="./assets/image/ink.svg"
+  />
+</Layout>
+
+---
+
+<Layout>
+  <CodeSurfer
+    code={quine}
+    lang="javascript"
+    showNumbers={false}
+    dark={false}
+  />
+</Layout>
+
+---
+
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/react-logo.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="30vw"
+    height="30vw"
+  />
+</Layout>
+
+---
+
+<Layout>
+  <span style={{ fontSize: "2em" }}>
+    {`<div /> ~> <View />`}
+  </span>
+</Layout>
+
+---
+
+<Layout>
+  <span style={{ fontSize: "2em" }}>
+    {`<span /> ~> <Text />`}
+  </span>
+</Layout>
+
+---
+
+<Layout>
+  <span style={{ fontSize: "2em" }}>
+    {`<img /> ~> <Image />`}
+  </span>
+</Layout>
+
+---
+
+## That kind of thing. ;-)
+
+---
+
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/react-logo.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="30vw"
+    height="30vw"
+  />
+</Layout>
+
+---
+
+# Hi.
+
+---
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  }}
+>
+  <span
+    style={{
+      fontSize: "3em",
+    }}
+  >
+    {"> @cawfree"}
+    {" "}
+    <FontAwesomeIcon icon={faTwitter} />
+    {" "}
+    <FontAwesomeIcon icon={faGithub} />
+  </span>
+  
+  <span
+    style={{
+      fontSize: "2em"
+    }}
+  >
+    React Native Zealot™
+    {" "}
+    <FontAwesomeIcon icon={faMobileAlt} />
+  </span>
+</div>
+
+---
+
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/phd.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="30vw"
+    height="30vw"
+  />
+</Layout>
+
+---
+
+<img
+  style={{
+    height: "80vh",
+    marginRight: "1em",
+  }}
+  src="./assets/image/add-members.png"
+/>
+<img
+  style={{
+    height: "90vh",
+    marginRight: "1em",
+  }}
+  src="./assets/image/kernel-group.png"
+/>
+<img
+  style={{
+    height: "80vh",
+  }}
+  src="./assets/image/withdraw-funds.png"
+/>
+
+---
+
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/empty.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="30vw"
+    height="30vw"
+  />
+</Layout>
+
+---
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+  <span
+    style={{
+      fontSize: "1.5em",
+    }}
+  >
+    {"> npx create-react-native-web-app"}
+    {" "}
+    <FontAwesomeIcon icon={faWrench} />
+  </span>
+
+  <span
+    style={{
+      fontSize: "1.5em",
+    }}
+  >
+    {"> npx create-react-native-app"}
+    {" "}
+    <FontAwesomeIcon icon={faBolt} />
+  </span>
+</div>
+
+---
+
+<img
+  style={{
+    height: "80vh",
+  }}
+  src="./assets/image/expo.png"
+/>
+
+---
+
+<span style={{ fontSize: "6em" }}>
+  <FontAwesomeIcon icon={faWrench} />
+</span>
+
+---
+
+<span style={{ fontSize: "6em" }}>
+  <FontAwesomeIcon icon={faBolt} />
+</span>
+
+---
+
+# 1: "Hello, World!"
+(You're not mistaken. This most certainly _is_ the senior track.)
+
+---
+
+# 2: "What does it mean to support the web?"
+(Like, specifically?)
+
+---
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+  <span
+    style={{
+      fontSize: "1.0em",
+    }}
+  >
+    {"import { NativeModules } from \"react-native\";"}
+    {" "}
+    <FontAwesomeIcon icon={faWrench} />
+  </span>
+</div>
+
+---
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+  <span
+    style={{
+      fontSize: "2.0em",
+    }}
+  >
+    {"import {"}
+  </span>
+  <span
+    style={{
+      fontSize: "2.0em",
+      paddingLeft: "2.0em",
+    }}
+  >
+    {"\tNativeModules as "}
+    <FontAwesomeIcon icon={faTimes} />
+  </span>
+  <span
+    style={{
+      fontSize: "2.0em",
+    }}
+  >
+    {"} from \"react-native-web\";"}
+  </span>
+</div>
+
+---
+
+# Just don't do it.
+
+---
+
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/unicorn.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="30vw"
+    height="30vw"
+  />
+</Layout>
+
+---
+
+# That was not a unicorn.
+
+---
+
+# That was a pony. 
+
+---
+
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/wizard.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="50vw"
+    height="50vw"
+  />
+</Layout>
+
+---
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+  <span
+    style={{
+      fontSize: "3.0em",
+    }}
+  >
+    {"<div><p></p></div>"}
+  </span>
+</div>
+
+---
+
+<span
+  style={{
+    fontSize: "3em",
+    textAlign: "center",
+    fontWeight: "bold"
+  }}
+>
+  3. Mixed Imports <FontAwesomeIcon icon={faPepperHot} />
+</span>
+
+---
+
+# 4. The Bundlers are Different 
+
+<span style={{ fontSize: "3em" }}>
+  <FontAwesomeIcon icon={faDna} />
+</span>
+
+---
+
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/burger.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="50vw"
+    height="50vw"
+  />
+</Layout>
+
+---
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+  <span
+    style={{ fontSize: "1.5em" }}
+    children={"\"main\": \"dist\","}
+  />
+  <span
+    style={{ fontSize: "1.5em" }}
+    children={"\"scripts\": {\n"}
+  />
+  <span
+    style={{ paddingLeft: "1.5em", fontSize: "1.5em" }}
+    children={"..."}
+  />
+  <span
+    style={{ paddingLeft: "1.5em", fontSize: "1.5em" }}
+    children={"\"build\": \"babel src --out-dir dist\","}
+  />
+  <span
+    style={{ paddingLeft: "1.5em", fontSize: "1.5em" }}
+    children={"..."}
+  />
+  <span
+    style={{ fontSize: "1.5em" }}
+    children={"}"}
+  />
+</div>
+
+---
+
+<span style={{ fontSize: "3em", fontWeight: "bold" }}>
+  5. Styling <FontAwesomeIcon icon={faPaintBrush} />
+</span>
+
+---
+
+<Layout>
+  <CodeSurfer
+    code={aphrodite}
+    lang="javascript"
+    showNumbers={false}
+    dark={false}
+    steps={[
+      {},
+      { range: [3, 3], notes: "Looks familiar?" },
+      { range: [5, 11], notes: "The StyleSheet export is basically identical." },
+      { range: [13, 15], notes: "Use className instead of style instead." },
+      {},
+    ]}
+  />
+</Layout>
+
+---
+
+<Layout>
+  <Lottie
+    options={{
+      loop: true,
+      autoplay: true,
+      animationData: require("./assets/lottie/hover.json"),
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    }}
+    width="30vw"
+    height="30vw"
+  />
+</Layout>
+
+---
+
+<span style={{ fontSize: "3em", fontWeight: "bold" }}>
+  6. Dimensions <FontAwesomeIcon icon={faRulerCombined} />
+</span>
+
+---
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+  <span
+    style={{
+      fontSize: "1.0em",
+    }}
+  >
+    {"import { Dimensions } from \"react-native\";"}
+  </span>
+  <span
+    style={{
+      fontSize: "1.0em",
+    }}
+  >
+    {"const { width, height } = Dimensions.get(\"window\");"}
+  </span>
+</div>
+
+---
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+  <span
+    style={{
+      fontSize: "1.0em",
+    }}
+  >
+    {"import { useWindowDimensions } from \"react-native\";"}
+  </span>
+  <span
+    style={{
+      fontSize: "1.0em",
+    }}
+  >
+    {"const { width, height } = useWindowDimensions();"}
+  </span>
+</div>
+
+---
+
+<span style={{ fontSize: "3em", fontWeight: "bold" }}>
+  6. Requests <FontAwesomeIcon icon={faCloud} />
+</span>
+
+---
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+  <span
+    style={{
+      fontSize: "2.0em",
+    }}
+  >
+    {"await axios({"}
+  </span>
+  <span
+    style={{
+      fontSize: "2.0em",
+      paddingLeft: "2.0em",
+    }}
+  >
+    {" url: \"https://api.twitter.com\","}
+  </span>
+  <span
+    style={{
+      fontSize: "2.0em",
+      paddingLeft: "2.0em",
+    }}
+  >
+    {" method: \"post\","}
+  </span>
+  <span
+    style={{
+      fontSize: "2.0em",
+      paddingLeft: "2.0em",
+    }}
+  >
+    {" data: {...},"}
+  </span>
+  <span
+    style={{
+      fontSize: "2.0em",
+    }}
+  >
+    {"}); // "}
+    <FontAwesomeIcon icon={faHeart} />
+  </span>
+</div>
+
+---
+
+# 99% of the time, it won't work. :-)
+
+---
+
+# C.O.R.S
+
+---
+
+# Careless Orator Regrets Slideshow
+
+---
+
+# Cross Origin Resource Sharing
+
+---
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+  <span
+    style={{
+      fontSize: "0.8em",
+    }}
+  >
+    {"await axios({"}
+  </span>
+  <span
+    style={{
+      fontSize: "0.8em",
+      paddingLeft: "0.8em",
+    }}
+  >
+    {" url: \"https://cors-anywhere.herokuapp.com/https://api.twitter.com\","}
+  </span>
+  <span
+    style={{
+      fontSize: "0.8em",
+      paddingLeft: "0.8em",
+    }}
+  >
+    {" method: \"post\","}
+  </span>
+  <span
+    style={{
+      fontSize: "0.8em",
+      paddingLeft: "0.8em",
+    }}
+  >
+    {" data: {...},"}
+  </span>
+  <span
+    style={{
+      fontSize: "0.8em",
+    }}
+  >
+    {"}); // "}
+    <FontAwesomeIcon icon={faHeart} />
+  </span>
+</div>
+
+---
+
+# Don't just trust. Verify.
+
+---
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  }}
+>
+  <span
+    style={{
+      fontSize: "3em",
+    }}
+  >
+    {"> @cawfree"}
+    {" "}
+    <FontAwesomeIcon icon={faTwitter} />
+    {" "}
+    <FontAwesomeIcon icon={faGithub} />
+  </span>
+  
+  <span
+    style={{
+      fontSize: "2em"
+    }}
+  >
+    Thanks for listening!
+    {" "}
+    <FontAwesomeIcon icon={faHeart} />
+  </span>
+  <span
+    style={{
+      marginTop: "2em",
+      textAlign: "center",
+      fontSize: "2em"
+    }}
+  >
+    Pick up the deck at github.com/cawfree/supporting-material
+  </span>
+
+</div>
+
+---
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  }}
+>
+  <span
+    style={{
+      fontSize: "3em",
+      fontWeight: "bold",
+    }}
+  >
+    {"> Join our beta!"}
+  </span>
+  
+  <span
+    style={{
+      fontSize: "2em"
+    }}
+  >
+    https://getuni.app
+    {" "}
+    <FontAwesomeIcon icon={faBolt} />
+  </span>
+</div>
