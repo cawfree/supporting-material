@@ -19,7 +19,7 @@ const withHover = Component => ({ style, ...extraProps }) => {
       </div>
     );
   }
-  return <Component style={extraStyles} {...extraProps } />;
+  return <Component style={extraStyles} { ...extraProps } />;
 };
 
 const HoverTouchableOpacity = withHover(TouchableOpacity);
@@ -33,12 +33,12 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <TouchableOpacity
+      <HoverTouchableOpacity
         style={{ active: { backgroundColor: "blue" } }}
         onPress={() => alert('hi')}
       >
         <Text children="Hover!" />
-      </TouchableOpacity>
+      </HoverTouchableOpacity>
     </View>
   );
 }

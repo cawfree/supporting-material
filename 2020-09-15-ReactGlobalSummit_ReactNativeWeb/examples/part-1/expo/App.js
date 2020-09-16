@@ -1,7 +1,8 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+import { Image, View, Text } from "react-native";
+import { SvgUri } from "react-native-svg";
 
-// https://www.getuni.app/static/media/logo.f5a08cbc.svg
+// 
 
 export default function App() {
   return (
@@ -13,6 +14,11 @@ export default function App() {
         backgroundColor: "green",
       }}
     >
+      <SvgUri
+        width={100}
+        height={100}
+        uri="https://www.getuni.app/static/media/logo.f5a08cbc.svg"
+      />
       <Text>Universal React with Expo</Text>
     </View>
   );
