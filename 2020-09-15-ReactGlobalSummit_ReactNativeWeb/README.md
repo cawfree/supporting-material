@@ -1,5 +1,11 @@
 # react-native-web
 
+  - So, like all of the greatest lectures, mine is going to start with a heartfelt apology.
+
+  - Unfortunately many of you were expecting an epic  lesson about managing your app's data in Flutter, however I'm sorry to say that the original presenter couldn't make it, so you're going to be stuck with me talking about React Native Web for the next 40 minutes. If React Native isn't your thing, Blessin is currently delivering a talk on writing responsive applications in Flutter over on the Junior channel, so you still have time head over.
+
+  - Additionally, this talk was originally designed to take about an hour, so let's see how far we can get together. How does that sound, chat?
+
 ## Preface
 
   - As we all know, React is an extremely versatile and expressive framework for designing web interfaces.
