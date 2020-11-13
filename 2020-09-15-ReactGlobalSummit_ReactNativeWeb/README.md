@@ -38,8 +38,9 @@
   - In my time I've lead the development of four production React Native applications, and open sourced over 100 React Native repositories. So, it's fair to say that I'm a little obsessed with this platform.
   - One thing a lot of people don't know about me though, is that I used to be a PhD student, and the title of my thesis was _Novel Approaches to Programming Heterogeneous Computational Systems_.
     - Okay, okay, so I don't understand the title either. But it was about "getting code to run on multiple platforms", so as you can imagine I have a particular sick interest in the the generality to computing that has been achieved by the Facebook team when it comes to React.
-  - Presently, I'm one of the founders of `getuni.app`. We use React Native to deliver the very simplest payment experience possible to our users, powered by the decentralized platform for computing and finance, Ethereum.
-    - We use a single application codebase for Android, iOS and the Web. Which I hope puts me in a good enough position to discuss with you how to structure and implement truly web-first user experiences in React Native.
+  - Presently, I'm one of the founders of **Myco**.
+    - Myco is a community-owned platform for launching new co's; things like Communities, Collectives, Co-operatives and even Corporations. We deliver built-in incentives for revenue-generating activities, and provide contributors with a genuine stake in the success of their Co. We provide communities around the world with the functional superpowers of cryptocurrency, while keeping it all hidden behind a sleek React Native interface that doesn't even feel like crypto.
+    - We currently use a single application codebase for Android, iOS and the Web. Which I hope puts me in a good enough position to discuss with you how to structure and implement truly web-first user experiences in React Native.
 
 And I'm going to try to cover everything I know. I understand that we're on the senior track, but I don't much like the idea of jumping in without some context. So if anything, it's for my own sake that I cover some a little bit of groundwork before we  deep dive.
 
@@ -366,52 +367,3 @@ export default () => (
       - We're in luck though. There's a super-underrated repository called `react-native-use-dimensions`. This ensures that any changes to the screen trigger re-renders sensitive components.
     - Secondly, is just to avoid relying upon dimensions altogether. Flex box is very powerful...
   - I _should_ emphasize that the hook `useWindowDimensions` has recently been introduced to React Native.
-    
-### Navigation
-
-  - Next, let's take a look at navigation.
-  - Another great attribute of designing an app using React Native Web, is that it keeps you mindful of the deep linking navigation structure early on, to the point where it's an incredibly powerful attribute you get for free.
-    - I just know we've all worked on those projects where deep linking is kind of an afterthought. It's a new feature scheduled for an iteration, and you somehow have to make your existing navigation system fit. And it hurts.
-    - With React Native Web, the presence of a URL bar forces you to think in terms of random access to your application _directly_.
-      - In addition, the visibility of navigation parameters also help you determine what the _actual_ data dependencies of your screen are, and what should really reside in global application state.
-        - Not to mention provide a simple interface to prototype with malformed data scenarios.
-      - Anyway, I'm sure we've talked _a lot_ about state management at this conference.
-  - And if your application is already installed on a mobile device, links to your website will naturally open in natively, with the assurance of runtime business logic. After all, it's the same codebase.
-
-### Persistence?
-
-### Add support for React Native Web?
-
-### Who is using React Native Web?
-  - Uni
-  - Twitter
-  - Expo
-  - Uber
-  - The Times
-
-emphasis on the webview
-
-  - Some packages just won't work for you.
-  - Anything will.
-
-
-
-// how to expose compatibility
-
-Easy. Next, let's try create-react-native-web-app:
-
-because you're targeting phones, you usually don't have worry about responsive. although you can use a separate project, but consider whether that should be a different application
-css-in-js aphrodite
-things to look for when pulling in dependencies
-filewatcher issues for lots of node_modules (universe picture)
-how babel can break things - what the bundler is doing - how to override
-how animated works
-look at the graph
-style of index.web.js
-favour the web component, always test in web first, it's easier (no device shaking etc)
-awareness of network specifics
-i'm going to take you through it all
-You can write react directly. But don't. It turts portability.
-You can find this presentation, twitter, uni, gitcoin etc.
-
-gitcoin, getuni.app, twitter
